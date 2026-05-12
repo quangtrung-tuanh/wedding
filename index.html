@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8" />
-<title>Thiệp cưới Tú Anh &amp; Quang Trung — 24.05.2026 (8 phiên bản)</title>
+<title>Thiệp cưới Quang Trung &amp; Tú Anh</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#FBF1EC">
 <meta property="og:title" content="Tú Anh & Quang Trung — Wedding Invitation 24.05.2026">
@@ -189,13 +189,21 @@ img{max-width:100%;display:block}
   border:1px solid rgba(255,255,255,.3);
 }
 .card-cta{
-  margin-top:.7rem;display:inline-flex;align-items:center;gap:.4rem;
-  font-family:'DM Sans',sans-serif;letter-spacing:.28em;font-size:.66rem;
-  text-transform:uppercase;color:#fff;font-weight:500;
-  text-shadow:0 1px 4px rgba(0,0,0,.3);
-  transition:transform .35s ease;
+  margin-top:.9rem;display:inline-flex;align-items:center;gap:.45rem;
+  background:rgba(255,255,255,.96);color:#1A0F12;
+  font-family:'DM Sans',sans-serif;font-weight:700;
+  letter-spacing:.18em;font-size:.85rem;
+  text-transform:uppercase;
+  padding:.55rem 1rem;border-radius:999px;
+  text-shadow:none;
+  box-shadow:0 10px 22px -10px rgba(0,0,0,.4);
+  transition:transform .35s ease, background .3s ease, box-shadow .3s ease;
 }
-.card:hover .card-cta{transform:translateX(4px)}
+.card:hover .card-cta{
+  transform:translateX(4px);
+  background:#fff;
+  box-shadow:0 14px 28px -10px rgba(0,0,0,.4);
+}
 
 /* Per-card hue overlay */
 .card.c1 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(96,72,40,.78) 100%)}
@@ -248,11 +256,11 @@ footer .small{display:block;margin-top:.7rem;font-size:.7rem;letter-spacing:.25e
 
 <header class="intro">
   <div class="badge">Wedding Invitation</div>
-  <h1>Tú Anh <span class="amp">&amp;</span> Quang Trung</h1>
+  <h1>Quang Trung <span class="amp">&amp;</span> Tú Anh</h1>
   <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line"></span></div>
 
   <div class="cd-banner">
-    <div class="label">Còn lại đến ngày trọng đại</div>
+    <div class="label">Our Wedding Countdown</div>
     <div class="cd-grid">
       <div><span class="cd-num" data-d>--</span><span class="cd-lbl">Ngày</span></div>
       <div><span class="cd-num" data-h>--</span><span class="cd-lbl">Giờ</span></div>
@@ -271,10 +279,11 @@ footer .small{display:block;margin-top:.7rem;font-size:.7rem;letter-spacing:.25e
 <main class="grid">
 
 
-  <a class="card c2" href="v2-pink-blush/index.html">
-    <span class="pink-badge">★ Pink</span>
+  <a class="card c2" href="ta/index.html">
+    <span class="pink-badge">★</span>
     <div class="card-thumb" style="background-image:url('Image/DSC09648.jpg')"></div>
     <div class="card-overlay">
+    <span class="card-cta">Mở phong bì →</span>
     </div>
   </a>
 
@@ -283,7 +292,7 @@ footer .small{display:block;margin-top:.7rem;font-size:.7rem;letter-spacing:.25e
 
 <footer>
   <span>Tú Anh</span><span class="heart">♡</span><span>Quang Trung</span>
-  <span class="small">24.05.2026 &middot; 8 editions &middot; Made with love</span>
+  <span class="small">24.05.2026 &middot; Made with love</span>
 </footer>
 
 <script>
@@ -298,6 +307,327 @@ function tick(){
   set('[data-d]',d); set('[data-h]',h); set('[data-m]',m); set('[data-s]',s);
 }
 tick(); setInterval(tick, 1000);
+</script>
+
+<!-- ===== BACKGROUND MUSIC (shared between landing & inner pages) ===== -->
+<style>
+.music-toggle{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:100;
+  width:52px;height:52px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  box-shadow:0 12px 28px -10px rgba(168,89,99,.55), inset 0 1px 0 rgba(255,255,255,.25);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.music-toggle:hover{transform:scale(1.08)}
+.music-toggle svg{width:22px;height:22px}
+.music-toggle .icon-play{display:none}
+.music-toggle.paused .icon-play{display:block}
+.music-toggle.paused .icon-pause{display:none}
+.music-toggle.playing::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:1.5px solid var(--rose);opacity:.45;
+  animation:musicPulse 2.2s ease-in-out infinite;
+}
+@keyframes musicPulse{
+  0%{transform:scale(1);opacity:.6}
+  100%{transform:scale(1.45);opacity:0}
+}
+.music-toggle .bars{display:none;align-items:flex-end;gap:2px;height:14px}
+.music-toggle.playing .bars{display:flex}
+.music-toggle.playing .icon-pause{display:none}
+.music-toggle.playing .icon-play{display:none}
+.music-toggle .bars span{
+  display:block;width:2.5px;background:#fff;border-radius:2px;
+  animation:musicBar 1s ease-in-out infinite;
+}
+.music-toggle .bars span:nth-child(1){height:50%;animation-delay:0s}
+.music-toggle .bars span:nth-child(2){height:100%;animation-delay:.15s}
+.music-toggle .bars span:nth-child(3){height:70%;animation-delay:.3s}
+.music-toggle .bars span:nth-child(4){height:90%;animation-delay:.45s}
+@keyframes musicBar{
+  0%,100%{transform:scaleY(.5)}
+  50%{transform:scaleY(1)}
+}
+.music-hint{
+  position:fixed;bottom:1.95rem;right:5rem;z-index:99;
+  background:#fff;color:var(--ink);
+  padding:.55rem 1rem;border-radius:999px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;
+  white-space:nowrap;
+  box-shadow:0 12px 28px -10px rgba(168,89,99,.35);
+  border:1px solid var(--rule);
+  pointer-events:none;
+  opacity:0;transform:translateX(8px);
+  transition:opacity .45s ease, transform .45s ease;
+}
+.music-hint.show{opacity:1;transform:translateX(0)}
+.music-hint::after{
+  content:'';position:absolute;right:-5px;top:50%;
+  width:9px;height:9px;background:#fff;
+  border-right:1px solid var(--rule);border-top:1px solid var(--rule);
+  transform:translateY(-50%) rotate(45deg);
+}
+.music-hint .heart{color:var(--rose-deep)}
+@media (max-width:780px){
+  .music-toggle{width:46px;height:46px;bottom:1rem;right:1rem}
+  .music-hint{display:none}
+}
+</style>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="audio/i-do.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== AUDIO PERMISSION POPUP — small bottom-right card asking for music consent ===== -->
+<style>
+.music-prompt{
+  position:fixed;bottom:5.2rem;right:1.5rem;z-index:99;
+  display:none;align-items:center;gap:.8rem;
+  background:#fff;
+  border:1px solid #EAD2CB;
+  border-radius:18px;
+  padding:.85rem 1rem .85rem .9rem;
+  max-width:340px;
+  box-shadow:0 18px 38px -12px rgba(168,89,99,.4);
+  font-family:'DM Sans',sans-serif;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .45s ease, transform .45s ease;
+}
+.music-prompt.show{display:flex;opacity:1;transform:translateY(0)}
+.music-prompt-icon{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,#FBD3CC,#D88791);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:18px;line-height:1;
+  animation:promptPulse 1.8s ease-in-out infinite;
+}
+@keyframes promptPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.music-prompt-body{flex:1;min-width:0;line-height:1.3}
+.music-prompt-title{
+  font-weight:600;font-size:.82rem;color:#3A2730;
+  letter-spacing:.02em;
+}
+.music-prompt-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.82rem;color:#7A5A60;margin-top:.1rem;
+}
+.music-prompt-yes{
+  flex-shrink:0;
+  background:linear-gradient(135deg,#D88791,#A85763);color:#fff;
+  border:none;padding:.55rem 1.05rem;border-radius:999px;
+  font-family:'DM Sans',sans-serif;font-weight:600;
+  letter-spacing:.18em;font-size:.68rem;text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 8px 18px -6px rgba(168,89,99,.5);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.music-prompt-yes:hover{transform:translateY(-1px);box-shadow:0 12px 22px -6px rgba(168,89,99,.55)}
+.music-prompt-close{
+  position:absolute;top:6px;right:8px;
+  width:20px;height:20px;border:none;background:transparent;
+  color:#B19994;cursor:pointer;font-size:16px;line-height:1;padding:0;
+  border-radius:50%;
+}
+.music-prompt-close:hover{color:#3A2730;background:rgba(0,0,0,.04)}
+@media (max-width:480px){
+  .music-prompt{
+    left:.7rem;right:.7rem;bottom:5rem;
+    max-width:none;
+  }
+  .music-prompt-title,.music-prompt-sub{font-size:.78rem}
+}
+</style>
+
+<div class="music-prompt" id="musicPrompt" role="dialog" aria-live="polite">
+  <button class="music-prompt-close" id="musicPromptClose" aria-label="Đóng">×</button>
+  <div class="music-prompt-icon" aria-hidden="true">♥</div>
+  <div class="music-prompt-body">
+    <div class="music-prompt-title">Cho phép phát nhạc nền?</div>
+    <div class="music-prompt-sub">"I Do" — trọn trải nghiệm</div>
+  </div>
+  <button class="music-prompt-yes" id="musicPromptYes">Bật</button>
+</div>
+
+<div class="music-hint" id="musicHint"><span class="heart">♥</span> Nhạc nền · "I Do"</div>
+
+<button class="music-toggle paused" id="musicToggle" aria-label="Bật/Tắt nhạc nền">
+  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+  <span class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+</button>
+
+<script>
+/*  Shared music controller — persists playback position & state in
+    sessionStorage so that navigating between landing ↔ inner pages
+    feels like one continuous song.                                     */
+(function(){
+  const audio = document.getElementById('bgMusic');
+  const btn   = document.getElementById('musicToggle');
+  const hint  = document.getElementById('musicHint');
+  if (!audio || !btn) return;
+  audio.volume = 0.55;
+
+  const K_TIME    = 'wm_time';
+  const K_PAUSED  = 'wm_user_paused';   // '1' if user explicitly paused
+  const K_UNMUTED = 'wm_unmuted';       // '1' if user already had sound on
+
+  let hinted = false, interacted = false, lastSavedTime = -10;
+
+  function readSession(){
+    try {
+      return {
+        time:       parseFloat(sessionStorage.getItem(K_TIME))   || 0,
+        userPaused: sessionStorage.getItem(K_PAUSED)  === '1',
+        wasUnmuted: sessionStorage.getItem(K_UNMUTED) === '1',
+      };
+    } catch(e) { return { time:0, userPaused:false, wasUnmuted:false }; }
+  }
+  function writeSession(){
+    try {
+      sessionStorage.setItem(K_TIME,    String(audio.currentTime || 0));
+      sessionStorage.setItem(K_UNMUTED, audio.muted ? '0' : '1');
+    } catch(e){}
+  }
+  function flashHint(text){
+    if (!hint) return;
+    if (text) hint.innerHTML = '<span class="heart">♥</span> ' + text;
+    hint.classList.add('show');
+    setTimeout(()=>hint.classList.remove('show'), 3800);
+  }
+  function setState(){
+    const audible = !audio.paused && !audio.muted;
+    btn.classList.toggle('playing', audible);
+    btn.classList.toggle('paused', !audible);
+    btn.setAttribute('aria-pressed', audible ? 'true' : 'false');
+  }
+  function playWithSound(){
+    audio.muted = false;
+    const p = audio.play();
+    if (p && p.then) p.then(setState).catch(setState); else setState();
+  }
+  function playMuted(){
+    audio.muted = true;
+    const p = audio.play();
+    if (p && p.then) p.then(setState).catch(setState); else setState();
+  }
+
+  audio.addEventListener('play',  ()=>{ setState(); writeSession(); });
+  audio.addEventListener('pause', ()=>{ setState(); writeSession(); });
+  audio.addEventListener('volumechange', setState);
+  audio.addEventListener('timeupdate', ()=>{
+    // Save every ~2 seconds while playing so navigations resume close to "now"
+    if (Math.abs(audio.currentTime - lastSavedTime) > 2) {
+      lastSavedTime = audio.currentTime;
+      writeSession();
+    }
+  });
+  window.addEventListener('pagehide', writeSession);
+  window.addEventListener('beforeunload', writeSession);
+
+  // ---- Manual toggle ----
+  btn.addEventListener('click', ()=>{
+    if (audio.paused || audio.muted) {
+      try { sessionStorage.setItem(K_PAUSED, '0'); } catch(e){}
+      playWithSound();
+      if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
+    } else {
+      try { sessionStorage.setItem(K_PAUSED, '1'); } catch(e){}
+      audio.pause();
+    }
+  });
+
+  // ---- INIT: resume from where the previous page left off (if any) ----
+  const session  = readSession();
+  const consent  = sessionStorage.getItem('wm_consent') === '1';
+  const prompt   = document.getElementById('musicPrompt');
+  const promptY  = document.getElementById('musicPromptYes');
+  const promptX  = document.getElementById('musicPromptClose');
+
+  function applySavedTime(){
+    if (session.time > 0 && isFinite(session.time)) {
+      try { audio.currentTime = session.time; } catch(e){}
+    }
+  }
+  audio.addEventListener('loadedmetadata', applySavedTime, {once:true});
+  applySavedTime();
+
+  function showPrompt(){ if (prompt) prompt.classList.add('show'); }
+  function hidePrompt(){ if (prompt) prompt.classList.remove('show'); }
+
+  // ---- Permission popup handlers ----
+  if (promptY) {
+    promptY.addEventListener('click', ()=>{
+      try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
+      try { sessionStorage.setItem(K_PAUSED, '0'); } catch(e){}
+      playWithSound();
+      hidePrompt();
+      if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
+    });
+  }
+  if (promptX) {
+    promptX.addEventListener('click', ()=>{
+      try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
+      try { sessionStorage.setItem(K_PAUSED, '1'); } catch(e){}
+      hidePrompt();
+      setState();
+    });
+  }
+
+  // ---- Auto-play attempt + decide popup visibility ----
+  // SAFETY: belt-and-suspenders — always force-hide first; only the final
+  // "else" branch re-opens it. Even if HTML/CSS ever has the .show class by
+  // accident, this guarantees a consented user never sees the popup again.
+  hidePrompt();
+
+  if (session.userPaused) {
+    // User chose silent in this session — respect that, no popup.
+    setState();
+  } else if (consent) {
+    // Already consented — try autoplay; popup never shows again in this session.
+    const p = audio.play();
+    if (p && p.then) {
+      p.then(setState).catch(()=>playMuted());
+    }
+  } else {
+    // First time in this session — try silent autoplay so track is primed,
+    // then show the small permission popup (after a short delay so it doesn't
+    // jolt the user mid-fadein). Re-check consent at fire-time in case the
+    // user clicked "Bật" / "×" during the 900ms wait.
+    const p = audio.play();
+    if (p && p.then) p.then(setState).catch(()=>playMuted());
+    setTimeout(()=>{
+      if (sessionStorage.getItem('wm_consent') !== '1') showPrompt();
+    }, 900);
+  }
+
+  // Tiny debug helper — call window.__musicState() from devtools to inspect.
+  window.__musicState = () => ({
+    consent:    sessionStorage.getItem('wm_consent') === '1',
+    userPaused: sessionStorage.getItem(K_PAUSED)     === '1',
+    time:       sessionStorage.getItem(K_TIME),
+    paused:     audio.paused,
+    muted:      audio.muted,
+    promptShown: prompt && prompt.classList.contains('show'),
+  });
+
+  // Fallback: if audio is still muted and user interacts (and they HAVEN'T
+  // dismissed the prompt yet), the prompt itself handles consent. We only
+  // auto-unmute when consent is already granted but autoplay was blocked.
+  function onceInteract(){
+    if (interacted) return;
+    interacted = true;
+    const cur = readSession();
+    if (!cur.userPaused && sessionStorage.getItem('wm_consent') === '1' && (audio.paused || audio.muted)) {
+      playWithSound();
+    }
+    ['pointerdown','touchstart','scroll','keydown','wheel'].forEach(t =>
+      document.removeEventListener(t, onceInteract, true));
+  }
+  ['pointerdown','touchstart','scroll','keydown','wheel'].forEach(t =>
+    document.addEventListener(t, onceInteract, {capture:true, passive:true}));
+})();
 </script>
 </body>
 </html>
