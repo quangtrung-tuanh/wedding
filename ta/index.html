@@ -152,6 +152,7 @@ section{padding:7.5rem 1.5rem;position:relative}
   text-align:center;font-size:1.4rem;color:var(--soft-ink);
   max-width:620px;margin:3rem auto 0;line-height:1.55;
 }
+.save-quote .quote-line{display:block}
 .save-quote .script{font-family:'Dancing Script',cursive;color:var(--rose-deep);font-size:1.6rem;display:block;margin-top:.6rem}
 
 /* Couple */
@@ -338,6 +339,20 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
   .gframe.p1,.gframe.p2,.gframe.p3,.gframe.p4,.gframe.p5{grid-column:auto;grid-row:auto}
   .gframe.p1,.gframe.p2{grid-column:span 2}
 }
+@media (max-width:480px){
+  .gallery-title{
+    font-size:clamp(1.72rem,7.6vw,1.9rem);
+    white-space:nowrap;
+  }
+  .event-label{
+    font-size:2rem;
+  }
+  .event-title{
+    font-size:.86rem;
+    letter-spacing:.24em;
+    white-space:nowrap;
+  }
+}
 </style>
 </head>
 <body>
@@ -386,8 +401,9 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
     </div>
 
     <p class="save-quote">
-      " Ngày hôm nay, chúng ta chọn nhau —
-       cho tất cả những ngày sau."
+      <span class="quote-line">"Ngày hôm nay, chúng ta chọn nhau</span>
+      <span class="quote-line">và thương nhau</span>
+      <span class="quote-line">cho tất cả những ngày sau."</span>
       <span class="script">— with love, forever —</span>
     </p>
   </div>
@@ -434,7 +450,7 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
 <section class="gallery">
   <div class="wrap">
     <div class="title-script">Moments of love</div>
-    <h2 class="section-title">Khoảnh khắc của chúng mình</h2>
+    <h2 class="section-title gallery-title">Khoảnh khắc của chúng mình</h2>
     <div class="ornament"><span class="line"></span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3"/><path d="M8 6V4h8v2"/></svg>
     <span class="line"></span></div>
