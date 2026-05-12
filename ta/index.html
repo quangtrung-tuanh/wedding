@@ -104,6 +104,24 @@ section{padding:5.5rem 1.5rem;position:relative}
 .ornament{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem auto 3.5rem}
 .ornament .line{width:60px;height:1px;background:var(--rule)}
 .ornament svg{width:24px;height:24px;color:var(--rose)}
+.section-divider{
+  max-width:980px;
+  margin:-1rem auto;
+  padding:0 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  color:var(--rose);
+}
+.section-divider::before,
+.section-divider::after{
+  content:'';
+  width:min(220px,34vw);
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--rule),transparent);
+}
+.section-divider svg{width:18px;height:18px;flex-shrink:0}
 
 /* Save-the-date */
 .save-date{background:var(--cream);position:relative;overflow:hidden}
@@ -472,6 +490,10 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
     </div>
   </div>
 </section>
+
+<div class="section-divider" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg>
+</div>
 
 <!-- EVENTS -->
 <section>
