@@ -397,7 +397,7 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
         <div class="event-label">Lễ vu quy</div>
         <h3 class="event-title">Trân trọng kính mời</h3>
         <div class="event-meta">
-          <span class="evt-time">10:00 — Chủ Nhật</span>
+          <span class="evt-time">09:30 — Chủ Nhật</span>
           <span class="evt-date">24 . 05 . 2026</span>
           <span class="evt-venue">Tư gia nhà gái</span>
           <span class="evt-addr">Đối diện nhà máy nước Bản Kham<br/>Xã Hua La, TP. Sơn La</span>
@@ -412,7 +412,7 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
           <span class="evt-time">10:30 — Chủ Nhật</span>
           <span class="evt-date">24 . 05 . 2026</span>
           <span class="evt-venue">Nhà hàng Hương Lan 86</span>
-          <span class="evt-addr">Np5.12 Đ. Văn Tiến Dũng, Tổ 1<br/>P. Chiềng Cơi, TP. Sơn La</span>
+          <span class="evt-addr">Np5.12, Đ. Văn Tiến Dũng, Tổ 1<br/>P. Chiềng Cơi, TP. Sơn La</span>
         </div>
       </div>
     </div>
@@ -445,6 +445,176 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 },{threshold:.12});
 document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classList.add('reveal');io.observe(el);});
+</script>
+
+<!-- ===== BACKGROUND MUSIC ===== -->
+<style>
+.music-toggle{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:100;
+  width:52px;height:52px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  box-shadow:0 12px 28px -10px rgba(168,89,99,.55), inset 0 1px 0 rgba(255,255,255,.25);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.music-toggle:hover{transform:scale(1.08)}
+.music-toggle svg{width:22px;height:22px}
+.music-toggle .icon-play{display:none}
+.music-toggle.paused .icon-play{display:block}
+.music-toggle.paused .icon-pause{display:none}
+.music-toggle.playing::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:1.5px solid var(--rose);opacity:.45;
+  animation:musicPulse 2.2s ease-in-out infinite;
+}
+@keyframes musicPulse{
+  0%{transform:scale(1);opacity:.6}
+  100%{transform:scale(1.45);opacity:0}
+}
+.music-toggle .bars{display:none;align-items:flex-end;gap:2px;height:14px}
+.music-toggle.playing .bars{display:flex}
+.music-toggle.playing .icon-pause{display:none}
+.music-toggle.playing .icon-play{display:none}
+.music-toggle .bars span{
+  display:block;width:2.5px;background:#fff;border-radius:2px;
+  animation:musicBar 1s ease-in-out infinite;
+}
+.music-toggle .bars span:nth-child(1){height:50%;animation-delay:0s}
+.music-toggle .bars span:nth-child(2){height:100%;animation-delay:.15s}
+.music-toggle .bars span:nth-child(3){height:70%;animation-delay:.3s}
+.music-toggle .bars span:nth-child(4){height:90%;animation-delay:.45s}
+@keyframes musicBar{
+  0%,100%{transform:scaleY(.5)}
+  50%{transform:scaleY(1)}
+}
+.music-hint{
+  position:fixed;bottom:1.95rem;right:5rem;z-index:99;
+  background:#fff;color:var(--ink);
+  padding:.55rem 1rem;border-radius:999px;
+  font-family:'Lora',serif;font-style:italic;font-size:.85rem;
+  white-space:nowrap;
+  box-shadow:0 12px 28px -10px rgba(168,89,99,.35);
+  border:1px solid var(--rule);
+  pointer-events:none;
+  opacity:0;transform:translateX(8px);
+  transition:opacity .45s ease, transform .45s ease;
+}
+.music-hint.show{opacity:1;transform:translateX(0)}
+.music-hint::after{
+  content:'';position:absolute;right:-5px;top:50%;
+  width:9px;height:9px;background:#fff;
+  border-right:1px solid var(--rule);border-top:1px solid var(--rule);
+  transform:translateY(-50%) rotate(45deg);
+}
+.music-hint .heart{color:var(--rose-deep)}
+@media (max-width:780px){
+  .music-toggle{width:46px;height:46px;bottom:1rem;right:1rem}
+  .music-hint{display:none}
+}
+</style>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="../audio/i-do.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-hint" id="musicHint"><span class="heart">♥</span> Nhạc nền · "I Do"</div>
+
+<button class="music-toggle paused" id="musicToggle" aria-label="Bật/Tắt nhạc nền">
+  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+  <span class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+</button>
+
+<script>
+(function(){
+  const audio = document.getElementById('bgMusic');
+  const btn   = document.getElementById('musicToggle');
+  const hint  = document.getElementById('musicHint');
+  if (!audio || !btn) return;
+  audio.volume = 0.55;
+  let hinted = false, interacted = false;
+
+  function flashHint(text){
+    if (!hint) return;
+    if (text) hint.innerHTML = '<span class="heart">♥</span> ' + text;
+    hint.classList.add('show');
+    setTimeout(()=>hint.classList.remove('show'), 3800);
+  }
+  function setState(){
+    const audible = !audio.paused && !audio.muted;
+    btn.classList.toggle('playing', audible);
+    btn.classList.toggle('paused', !audible);
+    btn.setAttribute('aria-pressed', audible ? 'true' : 'false');
+  }
+  function playWithSound(){
+    audio.muted = false;
+    const p = audio.play();
+    if (p && p.then) p.then(setState).catch(setState);
+    else setState();
+  }
+  function playMuted(){
+    audio.muted = true;
+    const p = audio.play();
+    if (p && p.then) p.then(setState).catch(setState);
+    else setState();
+  }
+
+  audio.addEventListener('play', setState);
+  audio.addEventListener('pause', setState);
+  audio.addEventListener('volumechange', setState);
+
+  // Manual toggle: click = unmute+play, second click = pause
+  btn.addEventListener('click', ()=>{
+    if (audio.paused || audio.muted) {
+      playWithSound();
+      if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
+    } else {
+      audio.pause();
+    }
+  });
+
+  // === DEFAULT BEHAVIOUR — try every angle to start music asap ===
+  // 1. Try autoplay WITH sound. Modern browsers usually block unless user has
+  //    visited the site before (Chrome's Media Engagement Index).
+  const firstAttempt = audio.play();
+  if (firstAttempt && firstAttempt.then) {
+    firstAttempt.then(()=>{
+      // Worked! Music is playing with sound.
+      setState();
+      if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
+    }).catch(()=>{
+      // 2. Sound blocked. Fall back to MUTED autoplay (browsers allow this).
+      //    The track is now silently playing from t=0; we just need a gesture
+      //    to unmute it.
+      playMuted();
+    });
+  }
+
+  // 3. On the user's first interaction (click / tap / scroll / keypress)
+  //    unmute and start playing if not already. This makes music feel "auto".
+  function onceInteract(){
+    if (interacted) return;
+    interacted = true;
+    playWithSound();
+    if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
+    ['pointerdown','touchstart','scroll','keydown','wheel'].forEach(t =>
+      document.removeEventListener(t, onceInteract, true));
+  }
+  ['pointerdown','touchstart','scroll','keydown','wheel'].forEach(t =>
+    document.addEventListener(t, onceInteract, {capture:true, passive:true}));
+
+  // 4. Some browsers fire 'visibilitychange' when the user returns from a
+  //    background tab — also count this as intent to play.
+  document.addEventListener('visibilitychange', ()=>{
+    if (!document.hidden && (audio.paused || audio.muted) && !interacted) {
+      // Try once more — browsers sometimes allow on visibility-change after
+      // an earlier user gesture on the same origin.
+      audio.muted = false;
+      audio.play().catch(()=>playMuted());
+    }
+  });
+})();
 </script>
 </body>
 </html>
