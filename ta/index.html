@@ -83,7 +83,7 @@ img{max-width:100%;display:block}
 }
 
 /* ==== SECTIONS ==== */
-section{padding:7.5rem 1.5rem;position:relative}
+section{padding:5.5rem 1.5rem;position:relative}
 .wrap{max-width:980px;margin:0 auto}
 .eyebrow{
   font-family:'Marcellus',serif;
@@ -250,6 +250,7 @@ section{padding:7.5rem 1.5rem;position:relative}
   font-size:1.2rem;color:var(--soft-ink);text-align:center;
   max-width:620px;margin:0 auto 2.5rem;line-height:1.6;
 }
+.gift-section{padding-top:3.5rem}
 .gift-grid{display:grid;grid-template-columns:1fr;gap:2rem;max-width:520px;margin:0 auto}
 .gift-card{
   background:#fff;border:1px solid var(--rule);border-radius:22px;
@@ -280,7 +281,7 @@ section{padding:7.5rem 1.5rem;position:relative}
 .gift-qr img{width:100%;height:100%;object-fit:contain;display:block}
 .gift-bank{
   font-family:'Marcellus',serif;letter-spacing:.3em;font-size:.85rem;
-  color:var(--rose-deep);text-transform:uppercase;margin-bottom:.7rem;
+  color:var(--rose-deep);text-transform:uppercase;margin-bottom:.7rem;white-space:nowrap;
 }
 .gift-bank b{font-weight:500}
 .gift-row{
@@ -317,6 +318,18 @@ section{padding:7.5rem 1.5rem;position:relative}
   font-size:1.4rem;max-width:680px;margin:0 auto 1.5rem;color:var(--ink);line-height:1.55;
 }
 .signature{font-family:'Dancing Script',cursive;font-size:3.4rem;color:var(--rose-deep);margin-top:.5rem}
+.name-stack .name-part,
+.name-stack .name-amp{display:inline}
+.name-stack .name-amp{
+  font-family:inherit;
+  font-style:inherit;
+  font-weight:inherit;
+  font-size:1em;
+  letter-spacing:inherit;
+  text-transform:inherit;
+  margin:0 .2em;
+  color:inherit;
+}
 
 footer{
   background:var(--rose-deep);color:var(--cream);
@@ -331,7 +344,8 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
 .reveal.in{opacity:1;transform:translateY(0)}
 
 @media (max-width:780px){
-  section{padding:5rem 1.2rem}
+  section{padding:3rem 1.2rem}
+  .gift-section{padding-top:2.5rem}
   .couple-grid{grid-template-columns:1fr;gap:1rem}
   .amp-vertical{font-size:4rem;margin:1rem 0}
   .events-grid{grid-template-columns:1fr}
@@ -340,6 +354,19 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
   .gframe.p1,.gframe.p2{grid-column:span 2}
 }
 @media (max-width:480px){
+  .wishes .section-title{
+    font-size:1.9rem;
+  }
+
+  .name-stack .name-part,
+  .name-stack .name-amp{
+    display:block;
+    margin:.2em 0;
+  }
+  .gift-bank{
+    font-size:.68rem;
+    letter-spacing:.16em;
+  }
   .gallery-title{
     font-size:clamp(1.72rem,7.6vw,1.9rem);
     white-space:nowrap;
@@ -501,20 +528,7 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
     </div>
   </div>
 </section>
-
-<!-- GIFT / QR CHUYỂN KHOẢN
-     ──────────────────────────────────────────────────────────
-     Để cập nhật thông tin thật, thay 3 chỗ:
-       1. Trong URL ảnh QR:  …image/{BANK_BIN}-{SO_TK}-compact2.png
-          BIN ngân hàng phổ biến:
-            Vietcombank 970436 | Techcombank 970407 | BIDV 970418
-            Vietinbank 970415  | MBBank 970422     | ACB 970416
-            TPBank 970423      | VPBank 970432     | Sacombank 970403
-            Agribank 970405    | Đầy đủ tại https://api.vietqr.io/v2/banks
-       2. Trong .gift-bank: tên ngân hàng hiển thị
-       3. Trong <code> và data-copy: số tài khoản
-     ────────────────────────────────────────────────────────── -->
-<section>
+<section class="gift-section">
   <div class="wrap">
     <div class="title-script">With love</div>
     <h2 class="section-title">Gửi Quà Đến <em>Cô Dâu</em></h2>
@@ -557,13 +571,21 @@ footer .names{font-family:'Marcellus',serif;font-size:1.5rem;letter-spacing:.3em
       Gia đình chúng tôi xin gửi lời cảm ơn sâu sắc nhất tới quý khách vì đã dành thời gian quý báu đến chung vui.
 	   Sự yêu thương và những lời chúc phúc của mọi người là món quà vô giá dành cho chúng tôi.
     </p>
-    <div class="signature">Quang Trung &amp; Tú Anh</div>
+    <div class="signature name-stack">
+      <span class="name-part">Quang Trung</span>
+      <span class="name-amp">&amp;</span>
+      <span class="name-part">Tú Anh</span>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="script">— with all our love —</div>
-  <div class="names">Quang Trung &amp; Tú Anh</div>
+  <div class="names name-stack">
+    <span class="name-part">Quang Trung</span>
+    <span class="name-amp">&amp;</span>
+    <span class="name-part">Tú Anh</span>
+  </div>
 </footer>
 
 <script>
