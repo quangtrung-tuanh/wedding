@@ -2,157 +2,348 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8" />
-<title>Thiệp cưới Quang Trung &amp; Tú Anh — 5 phiên bản</title>
+<title>Thiệp cưới Tú Anh &amp; Quang Trung — 24.05.2026 (8 phiên bản)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#FBF1EC">
+<meta property="og:title" content="Tú Anh & Quang Trung — Wedding Invitation 24.05.2026">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#15110C;
-  --bg-soft:#1F1A12;
-  --paper:#F4ECDC;
+  --bg:#FBF1EC;
+  --bg-soft:#FFF7F2;
+  --paper:#FFFFFF;
+  --ink:#3A2730;
+  --soft-ink:#7A5A60;
+  --mute:#B19994;
+  --pink-light:#FDE6E2;
+  --pink:#F5BEC2;
+  --pink-deep:#E89BA1;
+  --rose:#D88791;
+  --rose-deep:#A85763;
   --gold:#C9A24A;
-  --gold-bright:#E5C98C;
-  --mute:#9A8A6F;
+  --gold-deep:#8A6E40;
+  --rule:#EAD2CB;
+  --shadow:0 30px 60px -28px rgba(168,89,99,.22);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  background:var(--bg);
-  color:var(--paper);
-  font-family:'DM Sans',system-ui,sans-serif;
-  font-size:16px;line-height:1.6;
-  min-height:100vh;
-  overflow-x:hidden;
+  background:var(--bg);color:var(--ink);
+  font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;
+  min-height:100vh;overflow-x:hidden;
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(201,162,74,.1), transparent 35%),
-    radial-gradient(circle at 85% 90%, rgba(201,162,74,.07), transparent 40%);
+    radial-gradient(circle at 12% 8%,  rgba(245,190,194,.45), transparent 40%),
+    radial-gradient(circle at 92% 92%, rgba(201,162,74,.18),  transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(253,230,226,.6),  transparent 55%);
+  -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
 
-.intro{
-  text-align:center;
-  padding:8rem 1.5rem 4rem;
-  position:relative;
-}
-.intro::before{
-  content:'';position:absolute;top:30px;left:50%;transform:translateX(-50%);
-  width:1px;height:80px;background:linear-gradient(180deg,transparent,var(--gold));
-}
-.intro .eyebrow{
-  font-family:'DM Sans',sans-serif;font-weight:400;
-  letter-spacing:.55em;font-size:.78rem;color:var(--gold-bright);
-  margin-bottom:1.5rem;text-transform:uppercase;
+/* ===== INTRO ===== */
+.intro{text-align:center;padding:6rem 1.5rem 2rem;position:relative}
+.intro::before{content:'';position:absolute;top:30px;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(180deg,transparent,var(--rose))}
+.intro .badge{
+  display:inline-block;
+  font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.5em;
+  font-size:.7rem;text-transform:uppercase;color:var(--rose-deep);
+  background:var(--paper);padding:.4rem 1rem;border-radius:999px;
+  border:1px solid var(--rule);
+  margin-bottom:1.4rem;
 }
 .intro h1{
   font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:clamp(3rem,7vw,5.6rem);line-height:1.05;
-  margin-bottom:1.5rem;
+  font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.05;margin-bottom:1rem;color:var(--ink);
 }
-.intro h1 .amp{font-family:'Great Vibes',cursive;color:var(--gold-bright);font-style:normal;display:inline-block;margin:0 .15em;font-size:.7em;vertical-align:.15em}
+.intro h1 .amp{font-family:'Allura',cursive;color:var(--rose);font-style:normal;display:inline-block;margin:0 .2em;font-size:.7em;vertical-align:.15em}
 .intro p{
-  max-width:600px;margin:0 auto;color:var(--mute);
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;line-height:1.6;
+  max-width:600px;margin:0 auto;color:var(--soft-ink);
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;line-height:1.6;
 }
-.intro .ornament{display:flex;justify-content:center;align-items:center;gap:1rem;margin:2rem auto 0}
-.intro .ornament .line{width:50px;height:1px;background:var(--gold)}
+.intro .ornament{display:flex;justify-content:center;align-items:center;gap:1rem;margin:1.6rem auto 0}
+.intro .ornament .line{width:60px;height:1px;background:var(--gold)}
 .intro .ornament .dia{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
 
-.grid{
-  max-width:1320px;margin:0 auto;
-  padding:2rem 1.5rem 8rem;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:2rem;
+/* ===== COUNTDOWN BANNER ===== */
+.cd-banner{
+  max-width:760px;margin:2.5rem auto 0;
+  background:var(--paper);
+  border:1px solid var(--rule);border-radius:24px;
+  padding:1.8rem 1.6rem;text-align:center;
+  box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.cd-banner::before,.cd-banner::after{
+  content:'';position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;
+}
+.cd-banner::before{top:-50px;left:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(245,190,194,.6),transparent 70%)}
+.cd-banner::after{bottom:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(216,135,145,.3),transparent 70%)}
+.cd-banner > *{position:relative;z-index:2}
+.cd-banner .label{
+  font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.45em;
+  font-size:.68rem;text-transform:uppercase;color:var(--rose-deep);margin-bottom:1rem;
+}
+.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
+.cd-grid > div{
+  background:linear-gradient(180deg,var(--pink-light),var(--bg-soft));
+  border-radius:14px;padding:.9rem .4rem;
+  border:1px solid var(--rule);
+}
+.cd-num{
+  display:block;font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:clamp(1.7rem,5vw,2.6rem);color:var(--rose-deep);line-height:1;font-variant-numeric:tabular-nums;
+}
+.cd-lbl{display:block;margin-top:.4rem;font-family:'DM Sans',sans-serif;letter-spacing:.25em;font-size:.6rem;text-transform:uppercase;color:var(--soft-ink)}
+.cd-event{
+  margin-top:1.2rem;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1rem;color:var(--ink);line-height:1.6;
+}
+.cd-event b{font-weight:500;color:var(--rose-deep);font-style:normal;letter-spacing:.04em}
+
+/* ===== CATEGORY HEAD ===== */
+.category-head{
+  max-width:1320px;margin:5rem auto 1.6rem;padding:0 1.5rem;
+  display:flex;align-items:baseline;gap:1.2rem;
+}
+.category-head h2{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.4rem);color:var(--ink);letter-spacing:.01em;
+}
+.category-head h2 b{font-style:normal;color:var(--rose-deep);font-weight:500}
+.category-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--rule) 0%,transparent 100%);align-self:center}
+.category-head .pill{
+  font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.3em;
+  font-size:.62rem;color:var(--rose-deep);text-transform:uppercase;
+  background:var(--pink-light);padding:.35rem .8rem;border-radius:999px;
+  border:1px solid var(--rule);align-self:center;white-space:nowrap;
 }
 
-.card{
-  position:relative;
-  display:block;
-  overflow:hidden;
-  text-decoration:none;color:inherit;
-  border:1px solid rgba(201,162,74,.25);
-  transition:transform .6s cubic-bezier(.2,.7,.2,1), border-color .4s ease;
-  background:var(--bg-soft);
+/* ===== GRID ===== */
+.grid{
+  max-width:1320px;margin:0 auto;padding:0 1.5rem 2rem;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.6rem;
 }
-.card:hover{transform:translateY(-6px);border-color:var(--gold)}
+
+/* ===== CARD ===== */
+.card{
+  position:relative;display:block;overflow:hidden;text-decoration:none;
+  color:inherit;background:var(--paper);
+  border:1px solid var(--rule);border-radius:18px;
+  box-shadow:0 18px 36px -22px rgba(168,89,99,.2);
+  transition:transform .55s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--rose)}
+
 .card-thumb{
   aspect-ratio:3/4;width:100%;
   background-size:cover;background-position:center 25%;
-  position:relative;
-  transition:transform 1.2s ease, filter 1s ease;
+  position:relative;transition:transform 1.2s ease;
 }
 .card:hover .card-thumb{transform:scale(1.05)}
 .card-thumb::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(15,11,7,.85) 100%);
+  background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(58,39,48,.78) 100%);
 }
+
 .card-overlay{
   position:absolute;inset:0;z-index:2;
-  padding:1.6rem 1.4rem;
+  padding:1.4rem 1.2rem;
   display:flex;flex-direction:column;justify-content:space-between;
 }
 .card-number{
   font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  font-size:1.3rem;color:var(--gold-bright);
-  display:flex;align-items:center;gap:.6rem;
+  font-size:1.2rem;color:#FDE6E2;
+  display:flex;align-items:center;gap:.5rem;
+  text-shadow:0 2px 6px rgba(0,0,0,.3);
 }
-.card-number::after{content:'';flex:1;height:1px;background:rgba(229,201,140,.3)}
+.card-number::after{content:'';flex:1;height:1px;background:rgba(253,230,226,.5)}
 .card-body{}
 .card-tag{
-  font-family:'DM Sans',sans-serif;font-weight:400;letter-spacing:.4em;
-  font-size:.65rem;color:var(--gold-bright);text-transform:uppercase;
-  margin-bottom:.4rem;
+  font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.35em;
+  font-size:.6rem;color:#FDE6E2;text-transform:uppercase;margin-bottom:.3rem;
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
 }
 .card-name{
-  font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:1.9rem;line-height:1.1;margin-bottom:.5rem;
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.8rem;
+  line-height:1.1;margin-bottom:.4rem;color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
 }
-.card-name em{font-family:'Great Vibes',cursive;color:var(--gold-bright);font-style:normal;font-weight:400;display:inline-block;margin-right:.1em}
+.card-name em{
+  font-family:'Allura',cursive;color:#FDE6E2;font-style:normal;font-weight:400;
+  display:inline-block;margin-right:.1em;font-size:1.1em;
+}
 .card-desc{
-  font-size:.82rem;color:#D5C8AC;line-height:1.55;
-  max-width:240px;
+  font-size:.78rem;color:rgba(253,230,226,.92);line-height:1.55;max-width:240px;
+  text-shadow:0 1px 4px rgba(0,0,0,.35);
+}
+.card-meta{
+  margin-top:.6rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;
+}
+.card-meta .feature{
+  font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.15em;font-size:.6rem;
+  text-transform:uppercase;color:#fff;
+  padding:.18rem .55rem;border-radius:999px;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.3);
 }
 .card-cta{
-  margin-top:.9rem;
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:'DM Sans',sans-serif;letter-spacing:.3em;font-size:.7rem;text-transform:uppercase;
-  color:var(--gold-bright);
-  transition:transform .4s ease;
+  margin-top:.7rem;display:inline-flex;align-items:center;gap:.4rem;
+  font-family:'DM Sans',sans-serif;letter-spacing:.28em;font-size:.66rem;
+  text-transform:uppercase;color:#fff;font-weight:500;
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
+  transition:transform .35s ease;
 }
 .card:hover .card-cta{transform:translateX(4px)}
 
-/* Per-card tint overlay */
-.card.c1 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(184,153,104,.18) 100%)}
-.card.c2 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(216,138,142,.22) 100%)}
-.card.c2 .card-tag,.card.c2 .card-cta,.card.c2 .card-number{color:#FBD3CC}
-.card.c2 .card-name em{color:#FBD3CC}
-.card.c3 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(155,32,48,.22) 100%)}
-.card.c4 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(201,162,74,.25) 100%)}
-.card.c5 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(110,124,92,.30) 100%)}
-.card.c5 .card-tag,.card.c5 .card-cta,.card.c5 .card-number{color:#D6E0C5}
-.card.c5 .card-name em{color:#D6E0C5}
+/* Per-card hue overlay */
+.card.c1 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(96,72,40,.78) 100%)}
+.card.c2 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(168,89,99,.78) 100%)}
+.card.c3 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(50,30,32,.82) 100%)}
+.card.c4 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(110,86,40,.78) 100%)}
+.card.c5 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(61,71,54,.78) 100%)}
+.card.c6 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(216,135,145,.82) 100%)}
+.card.c7 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(138,92,87,.82) 100%)}
+.card.c8 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(155,94,99,.82) 100%)}
 
-footer{
-  text-align:center;padding:3rem 1rem 4rem;border-top:1px solid rgba(201,162,74,.18);
-  color:var(--mute);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
+/* PINK badge */
+.pink-badge{
+  position:absolute;top:.9rem;right:.9rem;z-index:3;
+  background:linear-gradient(135deg,#FBD3CC,#D88791);
+  color:#5B2E33;font-family:'DM Sans',sans-serif;
+  font-weight:600;letter-spacing:.22em;font-size:.58rem;text-transform:uppercase;
+  padding:.32rem .65rem;border-radius:999px;
+  box-shadow:0 8px 18px -6px rgba(216,135,145,.5);
 }
-footer .heart{color:var(--gold);margin:0 .3rem}
 
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;padding:3rem 1rem 4rem;margin-top:3rem;
+  border-top:1px solid var(--rule);color:var(--soft-ink);
+  font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
+}
+footer .heart{color:var(--rose);margin:0 .3rem;font-size:1rem}
+footer .small{display:block;margin-top:.7rem;font-size:.7rem;letter-spacing:.25em;color:var(--mute)}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width:760px){
-  .intro{padding:5rem 1rem 2rem}
-  .grid{padding:1rem 1rem 5rem;gap:1.4rem}
+  .intro{padding:4rem 1rem 1.5rem}
+  .intro::before{height:40px}
+  .cd-banner{padding:1.4rem 1.1rem;border-radius:18px}
+  .cd-grid{grid-template-columns:repeat(4,1fr);gap:.45rem}
+  .cd-grid > div{padding:.7rem .3rem;border-radius:10px}
+  .grid{padding:0 1rem 1.5rem;gap:1.2rem}
+  .category-head{margin-top:3.5rem;padding:0 1rem;flex-wrap:wrap}
+  .category-head h2{font-size:1.4rem;flex-basis:100%}
+  .category-head .rule{display:none}
+  .pink-badge{font-size:.52rem;padding:.26rem .55rem;top:.7rem;right:.7rem}
+}
+@media (max-width:380px){
+  .cd-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
 
 <header class="intro">
-  <div class="eyebrow">Wedding Invitation · 5 Editions</div>
-  <h1>Quang Trung <span class="amp">&amp;</span> Tú Anh</h1>
-  <p>Năm phong cách thiệp cưới online — cùng một câu chuyện, năm cách kể khác nhau. Chọn phiên bản bạn yêu.</p>
+  <div class="badge">Wedding Invitation · 8 Editions</div>
+  <h1>Tú Anh <span class="amp">&amp;</span> Quang Trung</h1>
+  <p>Tám phong cách thiệp cưới online — chọn phiên bản bạn yêu nhất để gửi đến quý khách.</p>
   <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line"></span></div>
+
+  <div class="cd-banner">
+    <div class="label">Còn lại đến ngày trọng đại</div>
+    <div class="cd-grid">
+      <div><span class="cd-num" data-d>--</span><span class="cd-lbl">Ngày</span></div>
+      <div><span class="cd-num" data-h>--</span><span class="cd-lbl">Giờ</span></div>
+      <div><span class="cd-num" data-m>--</span><span class="cd-lbl">Phút</span></div>
+      <div><span class="cd-num" data-s>--</span><span class="cd-lbl">Giây</span></div>
+    </div>
+    <div class="cd-event">
+      <b>Chủ Nhật · 24 tháng 5, 2026</b> &middot; 10 giờ 30 phút sáng<br/>
+      Nhà Hàng Hương Lan 86 — TP. Sơn La
+    </div>
+  </div>
 </header>
+
+<!-- Pink editions -->
+<div class="category-head">
+  <h2><b>Hồng mềm mại</b> <em>— phong cách cô dâu yêu thích</em></h2>
+  <span class="rule"></span>
+  <span class="pill">4 editions</span>
+</div>
+
+<main class="grid">
+
+  <a class="card c6" href="v6-bloom-pink/index.html">
+    <span class="pink-badge">★ Pink</span>
+    <div class="card-thumb" style="background-image:url('Image/DSC09584.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">06</div>
+      <div class="card-body">
+        <div class="card-tag">bloom · parallax</div>
+        <h2 class="card-name"><em>The</em> Bloom</h2>
+        <p class="card-desc">Hồng pastel với cánh hoa rơi liên tục, parallax mềm mại, calendar có hiệu ứng hoa.</p>
+        <div class="card-meta"><span class="feature">Parallax</span><span class="feature">Petals</span></div>
+        <span class="card-cta">Mở thiệp →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card c7" href="v7-letter-rose/index.html">
+    <span class="pink-badge">★ Pink</span>
+    <div class="card-thumb" style="background-image:url('Image/DSC09648.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">07</div>
+      <div class="card-body">
+        <div class="card-tag">letter · envelope</div>
+        <h2 class="card-name"><em>The</em> Letter</h2>
+        <p class="card-desc">Mở thiệp bằng phong bì &amp; con dấu sáp, từng trang lật mở như lá thư tay.</p>
+        <div class="card-meta"><span class="feature">Envelope</span><span class="feature">Page-fold</span></div>
+        <span class="card-cta">Mở phong bì →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card c8" href="v8-carousel-pink/index.html">
+    <span class="pink-badge">★ Pink</span>
+    <div class="card-thumb" style="background-image:url('Image/DSC09472.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">08</div>
+      <div class="card-body">
+        <div class="card-tag">carousel · swipe</div>
+        <h2 class="card-name"><em>The</em> Carousel</h2>
+        <p class="card-desc">Lướt ngang qua từng trang như đọc tạp chí. Mobile-first với swipe touch.</p>
+        <div class="card-meta"><span class="feature">Swipe</span><span class="feature">Mobile-first</span></div>
+        <span class="card-cta">Bắt đầu lướt →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card c2" href="v2-pink-blush/index.html">
+    <span class="pink-badge">★ Pink</span>
+    <div class="card-thumb" style="background-image:url('Image/DSC09648.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">02</div>
+      <div class="card-body">
+        <div class="card-tag">blush · romantic</div>
+        <h2 class="card-name"><em>The</em> Blush</h2>
+        <p class="card-desc">Hồng pastel lãng mạn, viền oval mềm, gradient nhẹ và cánh hoa rơi.</p>
+        <div class="card-meta"><span class="feature">Romantic</span><span class="feature">Soft</span></div>
+        <span class="card-cta">Mở thiệp →</span>
+      </div>
+    </div>
+  </a>
+
+</main>
+
+<!-- Other editions -->
+<div class="category-head">
+  <h2><b>Khác phong cách</b> <em>— để chọn lựa</em></h2>
+  <span class="rule"></span>
+  <span class="pill">4 editions</span>
+</div>
 
 <main class="grid">
 
@@ -163,21 +354,9 @@ footer .heart{color:var(--gold);margin:0 .3rem}
       <div class="card-body">
         <div class="card-tag">classic · ivory</div>
         <h2 class="card-name"><em>The</em> Timeless</h2>
-        <p class="card-desc">Phong cách cổ điển kem ngà, serif sang trọng, đối xứng và tối giản.</p>
-        <span class="card-cta">View →</span>
-      </div>
-    </div>
-  </a>
-
-  <a class="card c2" href="v2-pink-blush/index.html">
-    <div class="card-thumb" style="background-image:url('Image/DSC09648.jpg')"></div>
-    <div class="card-overlay">
-      <div class="card-number">02</div>
-      <div class="card-body">
-        <div class="card-tag">blush · romantic</div>
-        <h2 class="card-name"><em>The</em> Blush</h2>
-        <p class="card-desc">Tone hồng pastel lãng mạn, viền dạng oval mềm, gradient nhẹ và cánh hoa rơi.</p>
-        <span class="card-cta">View →</span>
+        <p class="card-desc">Cổ điển kem ngà, serif sang trọng, đối xứng tối giản.</p>
+        <div class="card-meta"><span class="feature">Classic</span></div>
+        <span class="card-cta">Mở thiệp →</span>
       </div>
     </div>
   </a>
@@ -189,8 +368,9 @@ footer .heart{color:var(--gold);margin:0 .3rem}
       <div class="card-body">
         <div class="card-tag">editorial · noir</div>
         <h2 class="card-name"><em>The</em> Issue</h2>
-        <p class="card-desc">Layout magazine đen trắng kèm accent đỏ, typography Bodoni dày dạn.</p>
-        <span class="card-cta">View →</span>
+        <p class="card-desc">Magazine đen trắng kèm accent đỏ, typography Bodoni dày dạn.</p>
+        <div class="card-meta"><span class="feature">Editorial</span></div>
+        <span class="card-cta">Mở thiệp →</span>
       </div>
     </div>
   </a>
@@ -203,7 +383,8 @@ footer .heart{color:var(--gold);margin:0 .3rem}
         <div class="card-tag">vintage · gold</div>
         <h2 class="card-name"><em>The</em> Heritage</h2>
         <p class="card-desc">Art-deco vintage với khung viền vàng, monogram Q&amp;T và serif Cinzel.</p>
-        <span class="card-cta">View →</span>
+        <div class="card-meta"><span class="feature">Vintage</span></div>
+        <span class="card-cta">Mở thiệp →</span>
       </div>
     </div>
   </a>
@@ -215,8 +396,9 @@ footer .heart{color:var(--gold);margin:0 .3rem}
       <div class="card-body">
         <div class="card-tag">botanical · sage</div>
         <h2 class="card-name"><em>The</em> Garden</h2>
-        <p class="card-desc">Xanh sage, hoạ tiết lá hữu cơ, vòm cong dịu dàng và accent terracotta.</p>
-        <span class="card-cta">View →</span>
+        <p class="card-desc">Xanh sage botanical, vòm cong dịu dàng và accent terracotta.</p>
+        <div class="card-meta"><span class="feature">Botanical</span></div>
+        <span class="card-cta">Mở thiệp →</span>
       </div>
     </div>
   </a>
@@ -224,8 +406,22 @@ footer .heart{color:var(--gold);margin:0 .3rem}
 </main>
 
 <footer>
-  <span>Q</span><span class="heart">♡</span><span>T</span> · 5 editions · 20YY
+  <span>Tú Anh</span><span class="heart">♡</span><span>Quang Trung</span>
+  <span class="small">24.05.2026 &middot; 8 editions &middot; Made with love</span>
 </footer>
 
+<script>
+const TARGET = new Date('2026-05-24T10:30:00+07:00').getTime();
+function tick(){
+  const diff = Math.max(0, TARGET - Date.now());
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
+  const set=(q,v)=>{const el=document.querySelector(q);if(el)el.textContent=String(v).padStart(2,'0')};
+  set('[data-d]',d); set('[data-h]',h); set('[data-m]',m); set('[data-s]',s);
+}
+tick(); setInterval(tick, 1000);
+</script>
 </body>
 </html>
