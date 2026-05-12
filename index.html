@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Thiệp cưới Quang Trung &amp; Tú Anh — 5 phiên bản</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15110C;
+  --bg-soft:#1F1A12;
+  --paper:#F4ECDC;
+  --gold:#C9A24A;
+  --gold-bright:#E5C98C;
+  --mute:#9A8A6F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--paper);
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:16px;line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(201,162,74,.1), transparent 35%),
+    radial-gradient(circle at 85% 90%, rgba(201,162,74,.07), transparent 40%);
+}
+img{max-width:100%;display:block}
+
+.intro{
+  text-align:center;
+  padding:8rem 1.5rem 4rem;
+  position:relative;
+}
+.intro::before{
+  content:'';position:absolute;top:30px;left:50%;transform:translateX(-50%);
+  width:1px;height:80px;background:linear-gradient(180deg,transparent,var(--gold));
+}
+.intro .eyebrow{
+  font-family:'DM Sans',sans-serif;font-weight:400;
+  letter-spacing:.55em;font-size:.78rem;color:var(--gold-bright);
+  margin-bottom:1.5rem;text-transform:uppercase;
+}
+.intro h1{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(3rem,7vw,5.6rem);line-height:1.05;
+  margin-bottom:1.5rem;
+}
+.intro h1 .amp{font-family:'Great Vibes',cursive;color:var(--gold-bright);font-style:normal;display:inline-block;margin:0 .15em;font-size:.7em;vertical-align:.15em}
+.intro p{
+  max-width:600px;margin:0 auto;color:var(--mute);
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;line-height:1.6;
+}
+.intro .ornament{display:flex;justify-content:center;align-items:center;gap:1rem;margin:2rem auto 0}
+.intro .ornament .line{width:50px;height:1px;background:var(--gold)}
+.intro .ornament .dia{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+.grid{
+  max-width:1320px;margin:0 auto;
+  padding:2rem 1.5rem 8rem;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+}
+
+.card{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  text-decoration:none;color:inherit;
+  border:1px solid rgba(201,162,74,.25);
+  transition:transform .6s cubic-bezier(.2,.7,.2,1), border-color .4s ease;
+  background:var(--bg-soft);
+}
+.card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.card-thumb{
+  aspect-ratio:3/4;width:100%;
+  background-size:cover;background-position:center 25%;
+  position:relative;
+  transition:transform 1.2s ease, filter 1s ease;
+}
+.card:hover .card-thumb{transform:scale(1.05)}
+.card-thumb::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(15,11,7,.85) 100%);
+}
+.card-overlay{
+  position:absolute;inset:0;z-index:2;
+  padding:1.6rem 1.4rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.card-number{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:1.3rem;color:var(--gold-bright);
+  display:flex;align-items:center;gap:.6rem;
+}
+.card-number::after{content:'';flex:1;height:1px;background:rgba(229,201,140,.3)}
+.card-body{}
+.card-tag{
+  font-family:'DM Sans',sans-serif;font-weight:400;letter-spacing:.4em;
+  font-size:.65rem;color:var(--gold-bright);text-transform:uppercase;
+  margin-bottom:.4rem;
+}
+.card-name{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:1.9rem;line-height:1.1;margin-bottom:.5rem;
+}
+.card-name em{font-family:'Great Vibes',cursive;color:var(--gold-bright);font-style:normal;font-weight:400;display:inline-block;margin-right:.1em}
+.card-desc{
+  font-size:.82rem;color:#D5C8AC;line-height:1.55;
+  max-width:240px;
+}
+.card-cta{
+  margin-top:.9rem;
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'DM Sans',sans-serif;letter-spacing:.3em;font-size:.7rem;text-transform:uppercase;
+  color:var(--gold-bright);
+  transition:transform .4s ease;
+}
+.card:hover .card-cta{transform:translateX(4px)}
+
+/* Per-card tint overlay */
+.card.c1 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(184,153,104,.18) 100%)}
+.card.c2 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(216,138,142,.22) 100%)}
+.card.c2 .card-tag,.card.c2 .card-cta,.card.c2 .card-number{color:#FBD3CC}
+.card.c2 .card-name em{color:#FBD3CC}
+.card.c3 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(155,32,48,.22) 100%)}
+.card.c4 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(201,162,74,.25) 100%)}
+.card.c5 .card-overlay{background:linear-gradient(180deg, transparent 30%, rgba(110,124,92,.30) 100%)}
+.card.c5 .card-tag,.card.c5 .card-cta,.card.c5 .card-number{color:#D6E0C5}
+.card.c5 .card-name em{color:#D6E0C5}
+
+footer{
+  text-align:center;padding:3rem 1rem 4rem;border-top:1px solid rgba(201,162,74,.18);
+  color:var(--mute);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
+}
+footer .heart{color:var(--gold);margin:0 .3rem}
+
+@media (max-width:760px){
+  .intro{padding:5rem 1rem 2rem}
+  .grid{padding:1rem 1rem 5rem;gap:1.4rem}
+}
+</style>
+</head>
+<body>
+
+<header class="intro">
+  <div class="eyebrow">Wedding Invitation · 5 Editions</div>
+  <h1>Quang Trung <span class="amp">&amp;</span> Tú Anh</h1>
+  <p>Năm phong cách thiệp cưới online — cùng một câu chuyện, năm cách kể khác nhau. Chọn phiên bản bạn yêu.</p>
+  <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line"></span></div>
+</header>
+
+<main class="grid">
+
+  <a class="card c1" href="v1-classic-ivory/index.html">
+    <div class="card-thumb" style="background-image:url('Image/DSC09584.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">01</div>
+      <div class="card-body">
+        <div class="card-tag">classic · ivory</div>
+        <h2 class="card-name"><em>The</em> Timeless</h2>
+        <p class="card-desc">Phong cách cổ điển kem ngà, serif sang trọng, đối xứng và tối giản.</p>
+        <span class="card-cta">View →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card c2" href="v2-pink-blush/index.html">
+    <div class="card-thumb" style="background-image:url('Image/DSC09648.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">02</div>
+      <div class="card-body">
+        <div class="card-tag">blush · romantic</div>
+        <h2 class="card-name"><em>The</em> Blush</h2>
+        <p class="card-desc">Tone hồng pastel lãng mạn, viền dạng oval mềm, gradient nhẹ và cánh hoa rơi.</p>
+        <span class="card-cta">View →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card c3" href="v3-editorial-noir/index.html">
+    <div class="card-thumb" style="background-image:url('Image/DSC09689.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">03</div>
+      <div class="card-body">
+        <div class="card-tag">editorial · noir</div>
+        <h2 class="card-name"><em>The</em> Issue</h2>
+        <p class="card-desc">Layout magazine đen trắng kèm accent đỏ, typography Bodoni dày dạn.</p>
+        <span class="card-cta">View →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card c4" href="v4-vintage-gold/index.html">
+    <div class="card-thumb" style="background-image:url('Image/DSC09472.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">04</div>
+      <div class="card-body">
+        <div class="card-tag">vintage · gold</div>
+        <h2 class="card-name"><em>The</em> Heritage</h2>
+        <p class="card-desc">Art-deco vintage với khung viền vàng, monogram Q&amp;T và serif Cinzel.</p>
+        <span class="card-cta">View →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card c5" href="v5-botanical-sage/index.html">
+    <div class="card-thumb" style="background-image:url('Image/DSC09911.jpg')"></div>
+    <div class="card-overlay">
+      <div class="card-number">05</div>
+      <div class="card-body">
+        <div class="card-tag">botanical · sage</div>
+        <h2 class="card-name"><em>The</em> Garden</h2>
+        <p class="card-desc">Xanh sage, hoạ tiết lá hữu cơ, vòm cong dịu dàng và accent terracotta.</p>
+        <span class="card-cta">View →</span>
+      </div>
+    </div>
+  </a>
+
+</main>
+
+<footer>
+  <span>Q</span><span class="heart">♡</span><span>T</span> · 5 editions · 20YY
+</footer>
+
+</body>
+</html>
