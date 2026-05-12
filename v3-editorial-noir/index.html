@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>QT & TA — The Wedding Issue</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=DM+Serif+Display:ital@0;1&family=Archivo+Narrow:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0D0B;
+  --paper:#F1ECE2;
+  --paper-cream:#E8E1D2;
+  --red:#9B2030;
+  --red-deep:#6E1320;
+  --rule:#0E0D0B;
+  --mute:#6E6555;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Archivo Narrow',sans-serif;
+  font-size:16px;line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+.bodoni{font-family:'Bodoni Moda',serif}
+.dmserif{font-family:'DM Serif Display',serif}
+
+/* ==== TOP BAR (newspaper masthead) ==== */
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding:1rem 1.5rem .8rem;
+  display:flex;justify-content:space-between;align-items:flex-end;
+  font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;
+  position:sticky;top:0;background:var(--paper);z-index:50;
+}
+.masthead .left{font-weight:500}
+.masthead .center{font-family:'Bodoni Moda',serif;font-size:1.1rem;letter-spacing:.5em;font-weight:700}
+.masthead .right{font-weight:500;text-align:right}
+
+/* ==== HERO ==== */
+.hero{
+  position:relative;
+  border-bottom:1px solid var(--ink);
+  padding:0;
+  background:var(--paper);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.05fr 1fr;min-height:90vh;
+}
+.hero-text{
+  padding:5rem 3rem 3rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid var(--ink);
+  position:relative;
+}
+.issue-line{
+  font-family:'Archivo Narrow',sans-serif;
+  font-size:.78rem;letter-spacing:.45em;text-transform:uppercase;
+  display:flex;justify-content:space-between;
+  border-bottom:1px solid var(--ink);
+  padding-bottom:.8rem;margin-bottom:3rem;
+}
+.issue-line .red{color:var(--red)}
+.hero-title{
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;
+  font-size:clamp(3.8rem,9.5vw,8rem);
+  line-height:.92;letter-spacing:-.02em;
+}
+.hero-title em{
+  font-style:italic;color:var(--red);
+  font-family:'DM Serif Display',serif;font-weight:400;
+}
+.hero-title small{
+  display:block;
+  font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;
+  font-size:.42em;color:var(--red-deep);margin-top:.6rem;
+}
+.hero-meta{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+  padding-top:2.2rem;border-top:1px solid var(--ink);margin-top:2rem;
+  font-size:.85rem;
+}
+.hero-meta dt{
+  font-size:.7rem;letter-spacing:.45em;text-transform:uppercase;color:var(--mute);
+  margin-bottom:.4rem;
+}
+.hero-meta dd{font-family:'Bodoni Moda',serif;font-size:1.4rem;letter-spacing:.02em}
+.hero-img{
+  background-image:url('../Image/DSC09584.jpg');
+  background-size:cover;background-position:center 30%;
+  filter:grayscale(.15) contrast(1.05);
+  position:relative;
+}
+.hero-img::after{
+  content:'CIRCA 2026';
+  position:absolute;bottom:1.5rem;right:1.5rem;
+  color:#fff;background:var(--red);
+  padding:.4rem 1rem;
+  font-size:.7rem;letter-spacing:.4em;
+}
+
+/* ==== SECTIONS ==== */
+section{padding:7rem 1.5rem;position:relative;border-bottom:1px solid var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1rem}
+
+.section-head{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:1.5rem;
+  border-bottom:1px solid var(--ink);padding-bottom:1.4rem;margin-bottom:3.5rem;
+}
+.section-num{
+  font-family:'Bodoni Moda',serif;font-weight:700;font-size:4rem;line-height:.85;
+  color:var(--red);
+}
+.section-title{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:clamp(2.4rem,5.5vw,4.2rem);line-height:1;
+}
+.section-title em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--red)}
+.section-kicker{
+  font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--mute);align-self:start;padding-top:.6rem;
+}
+
+/* Save-the-date as oversized date splat */
+.date-splat{
+  display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center;
+}
+.date-numbers{
+  font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:clamp(7rem,22vw,18rem);line-height:.85;letter-spacing:-.04em;
+}
+.date-numbers em{font-style:italic;color:var(--red);font-family:'DM Serif Display',serif}
+.date-side h3{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:2.5rem;line-height:1.1;margin-bottom:1.5rem;font-weight:400;
+}
+.date-side p{
+  font-size:1rem;line-height:1.8;color:var(--ink);
+  border-left:3px solid var(--red);padding-left:1.5rem;
+}
+.date-side .credit{
+  font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mute);margin-top:1.5rem;
+}
+
+/* Couple — magazine portrait spread */
+.couple-mag{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid var(--ink);
+}
+.mag-side{padding:3rem 2.5rem;position:relative}
+.mag-side.left{border-right:1px solid var(--ink);background:var(--paper-cream)}
+.mag-photo{
+  aspect-ratio:4/5;
+  background-size:cover;background-position:center;
+  margin-bottom:1.8rem;
+  filter:grayscale(.1);
+}
+.mag-side .label{
+  font-family:'Bodoni Moda',serif;font-weight:700;letter-spacing:.5em;
+  font-size:.78rem;color:var(--red);text-transform:uppercase;margin-bottom:.5rem;
+}
+.mag-side h3{
+  font-family:'Bodoni Moda',serif;font-weight:400;font-size:3rem;line-height:1;
+  margin-bottom:1rem;
+}
+.mag-side h3 em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--red)}
+.mag-side .lede{
+  font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.1rem;
+  line-height:1.6;color:var(--ink);max-width:340px;
+}
+.mag-side .parents{
+  font-size:.85rem;letter-spacing:.06em;color:var(--mute);
+  margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--ink);line-height:1.7;
+}
+
+/* Gallery — magazine grid */
+.gallery-mag{
+  display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:8px;
+}
+.gm{overflow:hidden;background:#222;position:relative}
+.gm img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) contrast(1.05);transition:filter .8s ease, transform 1s ease}
+.gm:hover img{filter:grayscale(0) contrast(1.05);transform:scale(1.04)}
+.gm::after{
+  content:attr(data-no);
+  position:absolute;top:8px;left:10px;color:#fff;
+  font-family:'Archivo Narrow',sans-serif;font-size:.7rem;letter-spacing:.3em;
+  background:var(--red);padding:.2rem .5rem;z-index:2;
+}
+.gm.m1{grid-column:1/8;grid-row:1/4}
+.gm.m2{grid-column:8/13;grid-row:1/2}
+.gm.m3{grid-column:8/13;grid-row:2/3}
+.gm.m4{grid-column:8/13;grid-row:3/4}
+.gm.m5{grid-column:1/13;grid-row:4/5}
+
+/* Events — schedule table */
+.schedule{
+  border:1px solid var(--ink);
+}
+.sch-row{
+  display:grid;grid-template-columns:.7fr 1.4fr 1fr;
+  border-bottom:1px solid var(--ink);
+  padding:2rem 2rem;align-items:center;
+}
+.sch-row:last-child{border-bottom:0}
+.sch-time{font-family:'Bodoni Moda',serif;font-weight:400;font-size:2.4rem;color:var(--red)}
+.sch-title{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.9rem;line-height:1.15}
+.sch-loc{font-size:.95rem;line-height:1.7;color:var(--ink)}
+.sch-loc b{display:block;font-family:'Bodoni Moda',serif;font-weight:500;font-style:normal;font-size:1.05rem;letter-spacing:.04em;margin-bottom:.2rem}
+.sch-row.head{background:var(--ink);color:var(--paper);padding:.8rem 2rem;font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;font-weight:500}
+.sch-row.head .sch-time,.sch-row.head .sch-title,.sch-row.head .sch-loc{font-family:'Archivo Narrow',sans-serif;color:var(--paper);font-size:.7rem;letter-spacing:.5em}
+
+/* Wishes */
+.wishes-pull{
+  font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.4;
+  text-align:center;max-width:880px;margin:0 auto;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  padding:3rem 1rem;position:relative;
+}
+.wishes-pull::before,.wishes-pull::after{
+  content:'"';font-family:'DM Serif Display',serif;
+  color:var(--red);font-size:5rem;line-height:1;position:absolute;
+}
+.wishes-pull::before{top:-1rem;left:1rem}
+.wishes-pull::after{content:'"';bottom:-3rem;right:1rem}
+.signature{
+  text-align:center;font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:2rem;color:var(--red-deep);margin-top:3rem;
+}
+
+footer{
+  background:var(--ink);color:var(--paper);
+  padding:4rem 1.5rem;text-align:center;
+}
+footer .logo{
+  font-family:'Bodoni Moda',serif;font-weight:700;letter-spacing:.45em;
+  font-size:.8rem;color:var(--red);margin-bottom:1.2rem;text-transform:uppercase;
+}
+footer .names{font-family:'Bodoni Moda',serif;font-size:2rem;font-weight:400}
+footer .names em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--red)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease, transform 1s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media (max-width:880px){
+  .masthead{font-size:.65rem;letter-spacing:.2em;padding:.7rem 1rem}
+  .masthead .center{font-size:.9rem;letter-spacing:.3em}
+  .hero-grid{grid-template-columns:1fr;min-height:auto}
+  .hero-text{padding:3rem 1.5rem 2rem;border-right:0;border-bottom:1px solid var(--ink)}
+  .hero-img{aspect-ratio:4/5}
+  section{padding:4.5rem 1rem}
+  .section-head{grid-template-columns:auto 1fr;gap:1rem}
+  .section-kicker{display:none}
+  .date-splat{grid-template-columns:1fr;gap:2rem}
+  .couple-mag{grid-template-columns:1fr}
+  .mag-side.left{border-right:0;border-bottom:1px solid var(--ink)}
+  .gallery-mag{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .gm.m1{grid-column:1/3;grid-row:1/3}
+  .gm.m2{grid-column:1/2;grid-row:3/4}
+  .gm.m3{grid-column:2/3;grid-row:3/4}
+  .gm.m4{grid-column:1/3;grid-row:4/5}
+  .gm.m5{grid-column:1/3;grid-row:5/6}
+  .sch-row{grid-template-columns:1fr;gap:.5rem}
+  .sch-row.head{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="left">No. 01 / Vol. I</span>
+  <span class="center">THE WEDDING ISSUE</span>
+  <span class="right">Quang Trung × Tú Anh</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="issue-line">
+        <span>EDITION 01 · 2026</span>
+        <span class="red">★ A LOVE STORY ★</span>
+        <span>HANOI · VIETNAM</span>
+      </div>
+      <h1 class="hero-title">
+        Quang Trung<br/>
+        <em>&amp;</em><br/>
+        Tú Anh
+        <small>— a love documented in light, color, and time —</small>
+      </h1>
+      <dl class="hero-meta">
+        <div>
+          <dt>The Date</dt>
+          <dd>24 &middot; 05 &middot; 2026</dd>
+        </div>
+        <div>
+          <dt>The Place</dt>
+          <dd>Nhà Hàng Hương Lan 86</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="hero-img"></div>
+  </div>
+</section>
+
+<!-- 01 SAVE THE DATE -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <h2 class="section-title">Save <em>the</em> date</h2>
+      <div class="section-kicker">Chapter One · The Beginning</div>
+    </div>
+
+    <div class="date-splat">
+      <div class="date-numbers">
+        <em>24</em><span style="font-style:normal">.</span>05
+      </div>
+      <div class="date-side">
+        <h3>The day everything finally made sense.</h3>
+        <p>
+          Sau bao tháng ngày, hai chúng tôi đã chọn ngày này để bắt đầu một
+          chương mới — một câu chuyện được kể bằng nhiều năm về sau.
+        </p>
+        <div class="credit">Written by Quang Trung &amp; Tú Anh — Year 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 THE COUPLE -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <h2 class="section-title">The <em>Couple</em></h2>
+      <div class="section-kicker">A Portrait Spread</div>
+    </div>
+
+    <div class="couple-mag">
+      <div class="mag-side left">
+        <div class="mag-photo" style="background-image:url('../Image/DSC00308.jpg')"></div>
+        <div class="label">The Groom</div>
+        <h3>Quang <em>Trung</em></h3>
+        <p class="lede">Người đã chọn dành cả phần đời còn lại để giữ một nụ cười bên cạnh mình.</p>
+        <div class="parents">
+          Con trai của Ông TRẦN VĂN BÁU &amp; Bà AN THỊ KIM DUNG<br><b style="letter-spacing:.04em">Chú rể: Trần Quang Trung</b></div>
+      </div>
+      <div class="mag-side">
+        <div class="mag-photo" style="background-image:url('../Image/DSC09472.jpg')"></div>
+        <div class="label">The Bride</div>
+        <h3>Tú <em>Anh</em></h3>
+        <p class="lede">Người đã biến mỗi ngày bình thường trở thành một câu chuyện đáng kể lại.</p>
+        <div class="parents">
+          Con gái của Ông TẠ TƯƠNG OANH &amp; Bà TẠ THỊ THƠM<br><b style="letter-spacing:.04em">Cô dâu: Tạ Thị Tú Anh</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 GALLERY -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Photo <em>Essay</em></h2>
+      <div class="section-kicker">Selected stills · 2026</div>
+    </div>
+
+    <div class="gallery-mag">
+      <div class="gm m1" data-no="01"><img src="../Image/DSC09689.jpg" alt=""></div>
+      <div class="gm m2" data-no="02"><img src="../Image/DSC09342.jpg" alt=""></div>
+      <div class="gm m3" data-no="03"><img src="../Image/DSC00327.jpg" alt=""></div>
+      <div class="gm m4" data-no="04"><img src="../Image/PHONG%201E.jpg" alt=""></div>
+      <div class="gm m5" data-no="05"><img src="../Image/DSC09438.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SCHEDULE -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04</div>
+      <h2 class="section-title">The <em>Schedule</em></h2>
+      <div class="section-kicker">Chương trình tổ chức</div>
+    </div>
+
+    <div class="schedule">
+      <div class="sch-row head">
+        <div class="sch-time">Time</div>
+        <div class="sch-title">Event</div>
+        <div class="sch-loc">Location</div>
+      </div>
+      <div class="sch-row">
+        <div class="sch-time">10:30</div>
+        <div class="sch-title">Lễ Vu Quy</div>
+        <div class="sch-loc"><b>Tư gia nhà gái</b>Tư gia nhà gái, TP. Sơn La</div>
+      </div>
+      <div class="sch-row">
+        <div class="sch-time">10:30</div>
+        <div class="sch-title">Lễ Thành Hôn</div>
+        <div class="sch-loc"><b>Tư gia nhà trai</b>Tư gia nhà trai, TP. Sơn La</div>
+      </div>
+      <div class="sch-row">
+        <div class="sch-time">10:30</div>
+        <div class="sch-title">Tiệc cưới</div>
+        <div class="sch-loc"><b>Nhà Hàng Hương Lan 86</b>Np5.12 Đ. Văn Tiến Dũng, P. Chiềng Cơi, TP. Sơn La</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 WISHES -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <h2 class="section-title">With <em>love</em></h2>
+      <div class="section-kicker">Lời cảm tạ</div>
+    </div>
+
+    <div class="wishes-pull">
+      Sự hiện diện của quý khách trong ngày trọng đại
+      sẽ là món quà ý nghĩa nhất chúng tôi nhận được.
+    </div>
+
+    <div class="signature">— Quang Trung &amp; Tú Anh —</div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">★ The Wedding Issue · 2026 ★</div>
+  <div class="names">Quang Trung <em>&amp;</em> Tú Anh</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('section > .wrap, .hero-grid').forEach(el=>{el.classList.add('reveal');io.observe(el);});
+</script>
+</body>
+</html>

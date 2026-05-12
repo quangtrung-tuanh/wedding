@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Quang Trung &amp; Tú Anh — Wedding Invitation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1A130A;
+  --paper:#F4E8D0;
+  --paper-deep:#E6D4B0;
+  --gold:#C9A24A;
+  --gold-bright:#E5BD66;
+  --gold-deep:#8E6F2A;
+  --bordeaux:#5C1E22;
+  --ink:#2A1B0B;
+  --soft-ink:#5C4624;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(201,162,74,.08), transparent 50%),
+    radial-gradient(circle at 80% 100%, rgba(92,30,34,.05), transparent 50%);
+  color:var(--ink);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:17px;line-height:1.75;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+
+/* Decorative gold border frame around viewport */
+.frame-border{
+  position:fixed;inset:14px;
+  border:1px solid rgba(201,162,74,.45);
+  pointer-events:none;z-index:100;
+}
+.frame-border::before,.frame-border::after{
+  content:'';position:absolute;width:60px;height:60px;
+  border:1px solid rgba(201,162,74,.6);
+}
+.frame-border::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.frame-border::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+
+/* ==== HERO ==== */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+  background:var(--bg);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('../Image/DSC09472.jpg');
+  background-size:cover;background-position:center 25%;
+  filter:brightness(.6) sepia(.18) saturate(.9);
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(26,19,10,.7) 100%),
+    linear-gradient(0deg, rgba(26,19,10,.4), transparent 50%);
+}
+.hero-deco{
+  position:absolute;inset:30px;
+  border:1px solid rgba(201,162,74,.4);
+  z-index:2;pointer-events:none;
+}
+.hero-deco::before,.hero-deco::after{
+  content:'';position:absolute;width:40px;height:40px;
+  border:1px solid rgba(229,189,102,.7);
+}
+.hero-deco::before{top:14px;left:14px;border-right:0;border-bottom:0}
+.hero-deco::after{bottom:14px;right:14px;border-left:0;border-top:0}
+.hero-inner{position:relative;z-index:3;color:var(--paper);padding:2rem;max-width:760px;animation:fadeUp 1.8s .3s ease-out both}
+.hero-establish{
+  font-family:'Cinzel',serif;font-weight:400;
+  letter-spacing:.7em;font-size:.78rem;color:var(--gold-bright);
+  margin-bottom:1.5rem;text-transform:uppercase;
+}
+.hero-monogram{
+  font-family:'Tangerine',cursive;font-weight:400;
+  font-size:clamp(7rem,18vw,13rem);
+  line-height:.85;color:var(--gold-bright);
+  text-shadow:0 0 30px rgba(201,162,74,.4);
+}
+.hero-names{
+  font-family:'Cinzel',serif;font-weight:500;letter-spacing:.5em;
+  font-size:clamp(1.2rem,3vw,2rem);
+  margin:1.5rem 0 1rem;text-transform:uppercase;
+}
+.deco-divider{
+  display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.6rem auto;
+}
+.deco-divider .line{width:80px;height:1px;background:rgba(229,189,102,.6)}
+.deco-divider svg{width:26px;height:26px;color:var(--gold-bright)}
+.hero-date{font-family:'Cinzel',serif;font-weight:400;letter-spacing:.5em;font-size:1rem;color:var(--paper-deep)}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:'Cinzel',serif;letter-spacing:.5em;font-size:.7rem;color:var(--gold-bright);z-index:3;animation:bob 2.5s ease-in-out infinite}
+
+/* ==== SECTIONS ==== */
+section{padding:8rem 1.5rem;position:relative}
+.wrap{max-width:1000px;margin:0 auto}
+.eyebrow{
+  font-family:'Cinzel',serif;font-weight:500;
+  letter-spacing:.7em;font-size:.72rem;color:var(--gold-deep);
+  text-align:center;text-transform:uppercase;margin-bottom:1.2rem;
+}
+.section-title{
+  font-family:'Cinzel',serif;font-weight:500;
+  text-align:center;font-size:clamp(2rem,4.5vw,3.2rem);
+  letter-spacing:.18em;line-height:1.2;text-transform:uppercase;
+}
+.section-script{
+  font-family:'Tangerine',cursive;font-weight:400;
+  color:var(--bordeaux);
+  text-align:center;font-size:clamp(3rem,6vw,4.5rem);line-height:1;
+  margin-bottom:-1rem;
+}
+.deco-row{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.8rem auto 4rem}
+.deco-row .line{width:60px;height:1px;background:var(--gold)}
+.deco-row svg{width:28px;height:28px;color:var(--gold)}
+
+/* Save-the-date — art deco panel */
+.save-date{background:var(--paper-deep);position:relative}
+.save-date::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(45deg, rgba(201,162,74,.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(201,162,74,.05) 25%, transparent 25%);
+  background-size:24px 24px;
+  pointer-events:none;
+}
+.deco-card{
+  position:relative;z-index:2;
+  background:var(--paper);
+  max-width:600px;margin:0 auto;
+  padding:3.5rem 2.5rem;text-align:center;
+  border:1px solid var(--gold);
+  box-shadow:0 0 0 8px var(--paper-deep), 0 0 0 9px var(--gold);
+}
+.deco-card::before,.deco-card::after{
+  content:'';position:absolute;width:34px;height:34px;
+  border:1px solid var(--gold);
+}
+.deco-card::before{top:14px;left:14px;border-right:0;border-bottom:0}
+.deco-card::after{bottom:14px;right:14px;border-left:0;border-top:0}
+.deco-day{font-family:'Cinzel',serif;letter-spacing:.5em;font-size:.85rem;color:var(--gold-deep);margin-bottom:1.5rem;text-transform:uppercase}
+.deco-big{
+  font-family:'Cinzel',serif;font-weight:400;font-size:clamp(4rem,9vw,6.5rem);
+  line-height:1;color:var(--bordeaux);letter-spacing:-.02em;
+}
+.deco-divider-row{display:flex;align-items:center;justify-content:center;gap:.8rem;margin:1.4rem auto 1.2rem}
+.deco-divider-row .line{width:50px;height:1px;background:var(--gold)}
+.deco-divider-row .dia{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.deco-month{font-family:'Cinzel',serif;letter-spacing:.5em;font-size:1rem;color:var(--ink);text-transform:uppercase}
+.deco-quote{
+  position:relative;z-index:2;
+  font-family:'EB Garamond',serif;font-style:italic;font-weight:400;
+  text-align:center;font-size:1.4rem;color:var(--soft-ink);
+  max-width:640px;margin:3.5rem auto 0;line-height:1.55;
+}
+.deco-quote .script{font-family:'Tangerine',cursive;color:var(--bordeaux);font-size:2.3rem;display:block;margin-top:.4rem}
+
+/* Couple */
+.couple-grid{
+  display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:2rem;align-items:center;
+}
+.person{text-align:center}
+.person-photo{
+  width:100%;aspect-ratio:3/4;
+  background:#222;overflow:hidden;
+  margin-bottom:1.8rem;position:relative;
+  outline:1px solid var(--gold);outline-offset:10px;
+  filter:sepia(.05);
+}
+.person-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.person:hover .person-photo img{transform:scale(1.05)}
+.person-role{
+  font-family:'Cinzel',serif;font-weight:500;letter-spacing:.5em;
+  font-size:.75rem;color:var(--gold-deep);text-transform:uppercase;margin-bottom:.6rem;
+}
+.person-name{
+  font-family:'Cinzel',serif;font-weight:500;font-size:1.7rem;
+  letter-spacing:.15em;line-height:1.1;text-transform:uppercase;
+}
+.person-script{font-family:'Tangerine',cursive;color:var(--bordeaux);font-size:2.2rem;line-height:1;margin:.4rem 0 .8rem}
+.person-parents{font-family:'EB Garamond',serif;font-style:italic;font-size:.92rem;color:var(--soft-ink);line-height:1.7}
+.person-parents span{display:block}
+.amp-center{
+  text-align:center;align-self:center;
+}
+.amp-center .big{
+  font-family:'Tangerine',cursive;color:var(--gold-deep);
+  font-size:9rem;line-height:1;text-shadow:0 0 20px rgba(201,162,74,.3);
+}
+
+/* Gallery — gilded frames */
+.gallery{background:var(--bg);color:var(--paper)}
+.gallery .eyebrow{color:var(--gold-bright)}
+.gallery .section-title{color:var(--paper)}
+.gallery .section-script{color:var(--gold-bright)}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+}
+.gframe{
+  position:relative;
+  padding:8px;background:linear-gradient(135deg,var(--gold-bright),var(--gold-deep));
+  overflow:hidden;
+}
+.gframe::before{
+  content:'';position:absolute;inset:2px;border:1px solid rgba(255,255,255,.2);pointer-events:none;z-index:3;
+}
+.gframe img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:sepia(.05) brightness(.95);transition:transform 1.2s ease, filter 1s ease}
+.gframe:hover img{transform:scale(1.06);filter:sepia(0) brightness(1)}
+.gframe.tall img{aspect-ratio:3/5}
+.gframe.wide{grid-column:span 2}
+.gframe.wide img{aspect-ratio:5/3}
+.gframe.pano{grid-column:span 4}
+.gframe.pano img{aspect-ratio:12/5}
+
+/* Events */
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.event-card{
+  background:var(--paper);
+  padding:3rem 2rem;text-align:center;
+  border:1px solid var(--gold);
+  position:relative;
+  outline:1px solid var(--gold);outline-offset:-8px;
+}
+.event-icon{width:46px;height:46px;margin:0 auto 1.2rem;color:var(--gold-deep)}
+.event-label{font-family:'Tangerine',cursive;font-size:2.5rem;color:var(--bordeaux);line-height:1;margin-bottom:.2rem}
+.event-title{font-family:'Cinzel',serif;font-weight:500;letter-spacing:.3em;font-size:1rem;text-transform:uppercase;margin-bottom:1.4rem}
+.event-meta{font-family:'EB Garamond',serif;font-size:1rem;line-height:1.9;color:var(--ink)}
+.event-meta b{display:block;font-family:'Cinzel',serif;font-weight:500;letter-spacing:.15em;font-size:.9rem;text-transform:uppercase;margin-bottom:.5rem;color:var(--bordeaux)}
+
+/* Wishes */
+.wishes{text-align:center;background:var(--paper-deep)}
+.wishes p{font-family:'EB Garamond',serif;font-style:italic;font-size:1.4rem;max-width:700px;margin:0 auto 1rem;color:var(--ink);line-height:1.6}
+.signature{font-family:'Tangerine',cursive;font-size:4rem;color:var(--bordeaux);margin-top:1rem;line-height:1}
+
+footer{
+  background:var(--bg);color:var(--paper);
+  text-align:center;padding:4rem 1.5rem;
+}
+footer .badge{font-family:'Cinzel',serif;letter-spacing:.6em;font-size:.75rem;color:var(--gold-bright);margin-bottom:1.2rem;text-transform:uppercase}
+footer .monogram{font-family:'Tangerine',cursive;font-size:4rem;color:var(--gold-bright);line-height:1}
+footer .names{font-family:'Cinzel',serif;font-weight:500;letter-spacing:.4em;font-size:1.1rem;margin-top:.6rem;text-transform:uppercase}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease, transform 1s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media (max-width:820px){
+  .frame-border{inset:8px}
+  section{padding:5rem 1rem}
+  .couple-grid{grid-template-columns:1fr}
+  .amp-center .big{font-size:5rem;margin:1rem 0}
+  .events-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gframe.wide{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div class="frame-border"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco"></div>
+  <div class="hero-inner">
+    <div class="hero-establish">est. 2026 · forever</div>
+    <div class="hero-monogram">Q &amp; T</div>
+    <h1 class="hero-names">Quang Trung &middot; Tú Anh</h1>
+    <div class="deco-divider">
+      <span class="line"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l3 9 9 0-7 5 3 9-8-6-8 6 3-9-7-5 9 0z"/></svg>
+      <span class="line"></span>
+    </div>
+    <div class="hero-date">24 &middot; 05 &middot; 2026</div>
+  </div>
+  <div class="scroll-cue">SCROLL ↓</div>
+</section>
+
+<!-- SAVE THE DATE -->
+<section class="save-date">
+  <div class="wrap">
+    <div class="section-script">Save the Date</div>
+    <h2 class="section-title">A Timeless Union</h2>
+    <div class="deco-row">
+      <span class="line"></span>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 7L21 10l-5.4 4 1.8 8L12 17.5 6.6 22l1.8-8L3 10l7.4-1z"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="deco-card">
+      <div class="deco-day">— mark the day —</div>
+      <div class="deco-big">24</div>
+      <div class="deco-divider-row"><span class="line"></span><span class="dia"></span><span class="line"></span></div>
+      <div class="deco-month">Tháng 5 &middot; 2026</div>
+    </div>
+
+    <p class="deco-quote">
+      "Có một ngày giữa muôn ngày, đặc biệt hơn tất cả — vì có nhau."
+      <span class="script">— mark the date —</span>
+    </p>
+  </div>
+</section>
+
+<!-- COUPLE -->
+<section>
+  <div class="wrap">
+    <div class="section-script">Bride &amp; Groom</div>
+    <h2 class="section-title">Đôi uyên ương</h2>
+    <div class="deco-row">
+      <span class="line"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="couple-grid">
+      <div class="person">
+        <div class="person-photo"><img src="../Image/DSC00064.jpg" alt="Chú rể"></div>
+        <div class="person-role">The Groom</div>
+        <div class="person-name">Quang Trung</div>
+        <div class="person-script">le marié</div>
+        <div class="person-parents">
+          <span>Ái tử của</span>
+          <span>Ông TRẦN VĂN BÁU</span>
+          <span>Bà AN THỊ KIM DUNG</span>
+          <span style="margin-top:.6rem;font-weight:600;display:block;letter-spacing:.04em">Chú rể: Trần Quang Trung</span>
+          </div>
+      </div>
+
+      <div class="amp-center">
+        <div class="big">&amp;</div>
+      </div>
+
+      <div class="person">
+        <div class="person-photo"><img src="../Image/DSC00308.jpg" alt="Cô dâu"></div>
+        <div class="person-role">The Bride</div>
+        <div class="person-name">Tú Anh</div>
+        <div class="person-script">la mariée</div>
+        <div class="person-parents">
+          <span>Ái nữ của</span>
+          <span>Ông TẠ TƯƠNG OANH</span>
+          <span>Bà TẠ THỊ THƠM</span>
+          <span style="margin-top:.6rem;font-weight:600;display:block;letter-spacing:.04em">Cô dâu: Tạ Thị Tú Anh</span>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="section-script">Memories</div>
+    <h2 class="section-title">Một thước phim</h2>
+    <div class="deco-row">
+      <span class="line" style="background:var(--gold-bright)"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--gold-bright)"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3"/><path d="M8 6V4h8v2"/></svg>
+      <span class="line" style="background:var(--gold-bright)"></span>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gframe"><img src="../Image/DSC09584.jpg" alt=""></div>
+      <div class="gframe"><img src="../Image/DSC09466%20Phong%202.jpg" alt=""></div>
+      <div class="gframe"><img src="../Image/DSC09438.jpg" alt=""></div>
+      <div class="gframe"><img src="../Image/DSC09689.jpg" alt=""></div>
+      <div class="gframe pano"><img src="../Image/DSC09720.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section>
+  <div class="wrap">
+    <div class="section-script">Wedding Day</div>
+    <h2 class="section-title">Chương trình lễ cưới</h2>
+    <div class="deco-row">
+      <span class="line"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 7h18M12 7v14M6 21h12"/><circle cx="12" cy="4" r="2"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card">
+        <svg class="event-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg>
+        <div class="event-label">le Vu Quy</div>
+        <h3 class="event-title">Tư gia Nhà gái</h3>
+        <div class="event-meta">
+          <b>Chủ Nhật · 24.05.2026</b>
+          10:30 sáng<br/>
+          Tư gia nhà gái — TP. Sơn La
+        </div>
+      </div>
+
+      <div class="event-card">
+        <svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 7h14l-1.5 12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2L5 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <div class="event-label">Tiệc cưới</div>
+        <h3 class="event-title">Wedding Banquet</h3>
+        <div class="event-meta">
+          <b>Chủ Nhật · 24.05.2026</b>
+          10:30 sáng<br/>
+          Nhà Hàng Hương Lan 86<br/>Np5.12 Đ. Văn Tiến Dũng, Tổ 1<br/>P. Chiềng Cơi, TP. Sơn La
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WISHES -->
+<section class="wishes">
+  <div class="wrap">
+    <div class="section-script">With Gratitude</div>
+    <h2 class="section-title">Lời cảm tạ</h2>
+    <div class="deco-row">
+      <span class="line"></span>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 9 9 0-7 5 3 9-8-6-8 6 3-9-7-5 9 0z"/></svg>
+      <span class="line"></span>
+    </div>
+    <p>
+      Trong giây phút trọng đại, sự hiện diện của quý vị
+      là vinh dự lớn lao đối với gia đình chúng tôi.
+    </p>
+    <p>
+      Xin được trân trọng cảm ơn — và mong rằng tình cảm này
+      sẽ được lưu giữ như một kỷ niệm đẹp giữa chúng ta.
+    </p>
+    <div class="signature">— Quang Trung &amp; Tú Anh —</div>
+  </div>
+</section>
+
+<footer>
+  <div class="badge">— Forever and Always —</div>
+  <div class="monogram">Q &amp; T</div>
+  <div class="names">Quang Trung &middot; Tú Anh</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classList.add('reveal');io.observe(el);});
+</script>
+</body>
+</html>

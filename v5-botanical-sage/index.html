@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Quang Trung &amp; Tú Anh — Wedding Invitation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sage:#A8B89B;
+  --sage-deep:#6E7C5C;
+  --sage-ink:#3D4736;
+  --cream:#F5F0E3;
+  --cream-deep:#E9E2CD;
+  --terra:#C97D5D;
+  --terra-deep:#8B4A30;
+  --rule:#B8C2A8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--sage-ink);
+  font-family:'Cormorant',Georgia,serif;
+  font-size:17px;line-height:1.75;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+
+/* SVG botanical decoration as background */
+.leaf-deco{position:absolute;opacity:.5;pointer-events:none;color:var(--sage-deep)}
+
+/* ==== HERO ==== */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+  background:var(--sage-ink);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('../Image/DSC09584.jpg');
+  background-size:cover;background-position:center 28%;
+  filter:brightness(.7) saturate(.85);
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(135deg, rgba(61,71,54,.4) 0%, rgba(110,124,92,.3) 50%, rgba(61,71,54,.55) 100%);
+}
+.hero-leaf-l,.hero-leaf-r{position:absolute;z-index:2;color:#E2E8D6;opacity:.85}
+.hero-leaf-l{top:40px;left:30px;width:140px}
+.hero-leaf-r{bottom:40px;right:30px;width:140px;transform:scaleX(-1) rotate(180deg)}
+
+.hero-inner{position:relative;z-index:3;color:var(--cream);padding:2rem;max-width:760px;animation:fadeUp 1.8s .3s ease-out both}
+.hero-overline{
+  font-family:'Forum',serif;letter-spacing:.55em;font-size:.85rem;
+  color:#E2E8D6;text-transform:uppercase;margin-bottom:1.5rem;
+}
+.hero-script{
+  font-family:'Allura',cursive;color:#F1E8D2;
+  font-size:clamp(3.5rem,8vw,5.5rem);line-height:.9;
+}
+.hero-names{
+  font-family:'Forum',serif;
+  font-size:clamp(2.4rem,6vw,4.6rem);
+  letter-spacing:.3em;line-height:1.1;
+  margin:1.2rem 0 1rem;text-transform:uppercase;
+}
+.hero-names span{display:inline-block}
+.hero-amp{font-family:'Allura',cursive;text-transform:none;letter-spacing:0;color:#F1E8D2;font-size:.7em;margin:0 .3em;vertical-align:.1em}
+.divider-leaf{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem auto 1.2rem}
+.divider-leaf .line{width:80px;height:1px;background:rgba(241,232,210,.7)}
+.divider-leaf svg{width:24px;height:24px;color:#F1E8D2}
+.hero-date{font-family:'Forum',serif;letter-spacing:.5em;font-size:.95rem;color:#E2E8D6}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:'Forum',serif;letter-spacing:.4em;font-size:.7rem;color:#E2E8D6;z-index:3;animation:bob 2.5s ease-in-out infinite}
+
+/* ==== SECTIONS ==== */
+section{padding:8rem 1.5rem;position:relative;overflow:hidden}
+.wrap{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{
+  font-family:'Forum',serif;letter-spacing:.55em;font-size:.72rem;
+  color:var(--terra-deep);text-align:center;text-transform:uppercase;margin-bottom:.8rem;
+}
+.section-script{
+  font-family:'Allura',cursive;color:var(--terra);
+  text-align:center;font-size:clamp(3rem,6vw,4.5rem);line-height:.9;
+  margin-bottom:-.3rem;
+}
+.section-title{
+  font-family:'Forum',serif;text-align:center;
+  font-size:clamp(2rem,4.5vw,3.4rem);letter-spacing:.18em;line-height:1.25;
+  text-transform:uppercase;
+}
+.section-title em{font-family:'Cormorant',serif;font-style:italic;font-weight:300;letter-spacing:.02em;text-transform:lowercase;color:var(--sage-deep)}
+.botanic-divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem auto 4rem}
+.botanic-divider .line{width:60px;height:1px;background:var(--sage)}
+.botanic-divider svg{width:32px;height:32px;color:var(--sage-deep)}
+
+/* Save-the-date — organic blob */
+.save-date{background:var(--cream-deep);position:relative}
+.save-date::before{
+  content:'';position:absolute;top:-80px;left:-80px;width:300px;height:300px;
+  background:radial-gradient(circle, var(--sage) 0%, transparent 65%);opacity:.35;border-radius:50%;
+}
+.save-date::after{
+  content:'';position:absolute;bottom:-80px;right:-80px;width:300px;height:300px;
+  background:radial-gradient(circle, var(--terra) 0%, transparent 65%);opacity:.2;border-radius:50%;
+}
+.organic-card{
+  position:relative;z-index:2;
+  background:var(--cream);
+  max-width:580px;margin:0 auto;
+  padding:3.5rem 2.5rem;text-align:center;
+  border-radius:240px / 60px;
+  border:1px solid var(--rule);
+}
+.organic-card .leaf-top{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:50px;color:var(--sage-deep)}
+.deco-day{font-family:'Forum',serif;letter-spacing:.5em;font-size:.8rem;color:var(--sage-deep);text-transform:uppercase;margin-bottom:1.2rem}
+.deco-big{font-family:'Forum',serif;font-size:clamp(4rem,9vw,6rem);line-height:.95;color:var(--sage-ink);letter-spacing:.05em}
+.deco-row{display:flex;justify-content:center;gap:1.5rem;align-items:center;margin-top:.6rem}
+.deco-row span{font-family:'Forum',serif;letter-spacing:.4em;font-size:1rem;text-transform:uppercase}
+.deco-row .dia{width:7px;height:7px;background:var(--terra);transform:rotate(45deg)}
+.organic-quote{
+  position:relative;z-index:2;
+  font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.4rem;
+  text-align:center;max-width:640px;margin:3rem auto 0;color:var(--sage-deep);line-height:1.55;
+}
+.organic-quote .script{font-family:'Allura',cursive;color:var(--terra);font-size:1.9rem;display:block;margin-top:.4rem}
+
+/* Couple — arched portraits */
+.couple-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center}
+.person{text-align:center;position:relative}
+.person-photo{
+  width:100%;aspect-ratio:3/4;
+  overflow:hidden;
+  background:#222;
+  border-radius:50% 50% 0 0 / 30% 30% 0 0;
+  margin-bottom:1.5rem;position:relative;
+}
+.person-photo::after{
+  content:'';position:absolute;inset:-6px;
+  border:1px solid var(--sage);
+  border-radius:inherit;pointer-events:none;
+}
+.person-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.person:hover .person-photo img{transform:scale(1.05)}
+.person-role{
+  font-family:'Allura',cursive;color:var(--terra);font-size:2rem;line-height:1;margin-bottom:.1rem;
+}
+.person-name{
+  font-family:'Forum',serif;letter-spacing:.25em;font-size:1.6rem;
+  margin-bottom:.8rem;text-transform:uppercase;
+}
+.person-parents{font-family:'Cormorant',serif;font-style:italic;font-size:.95rem;color:var(--sage-deep);line-height:1.7}
+.person-parents span{display:block}
+.amp-center{align-self:center;text-align:center}
+.amp-center .big{font-family:'Allura',cursive;color:var(--sage-deep);font-size:7rem;line-height:1}
+.amp-center .leaf{display:block;width:40px;margin:.5rem auto;color:var(--sage)}
+
+/* Gallery — botanical scrapbook */
+.gallery{background:var(--cream-deep);position:relative}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(2,260px);gap:14px;
+}
+.gframe{overflow:hidden;background:#222;position:relative}
+.gframe img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) brightness(.98);transition:transform 1s ease, filter .8s ease}
+.gframe:hover img{transform:scale(1.05);filter:saturate(1.05) brightness(1.02)}
+.gframe::after{
+  content:'';position:absolute;inset:8px;border:1px solid rgba(255,255,255,.18);pointer-events:none;
+}
+.gs1{grid-column:1/3;grid-row:1/3;border-radius:200px 0 0 0 / 40px 0 0 0}
+.gs2{grid-column:3/5;grid-row:1/2}
+.gs3{grid-column:5/7;grid-row:1/2;border-radius:0 200px 0 0 / 0 40px 0 0}
+.gs4{grid-column:3/5;grid-row:2/3}
+.gs5{grid-column:5/7;grid-row:2/3}
+
+/* Events */
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem}
+.event-card{
+  background:var(--cream-deep);
+  padding:3rem 2rem;text-align:center;position:relative;
+  border-radius:180px 180px 8px 8px / 36px 36px 8px 8px;
+  border:1px solid var(--rule);overflow:hidden;
+}
+.event-card .leaf{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:46px;color:var(--sage-deep)}
+.event-card .leaf-bg{position:absolute;bottom:-20px;right:-20px;width:140px;color:var(--sage);opacity:.18;transform:rotate(20deg)}
+.event-label{font-family:'Allura',cursive;color:var(--terra);font-size:2rem;margin-top:3rem;line-height:1}
+.event-title{font-family:'Forum',serif;letter-spacing:.25em;font-size:1.1rem;text-transform:uppercase;margin-bottom:1.4rem;color:var(--sage-ink)}
+.event-meta{font-family:'Cormorant',serif;font-size:1rem;line-height:1.9;color:var(--sage-ink);position:relative;z-index:2}
+.event-meta b{display:block;font-family:'Forum',serif;font-weight:normal;letter-spacing:.15em;font-size:.95rem;text-transform:uppercase;color:var(--terra-deep);margin-bottom:.4rem}
+
+/* Wishes */
+.wishes{text-align:center;background:var(--sage-ink);color:var(--cream)}
+.wishes .eyebrow{color:#D6CFB7}
+.wishes .section-title{color:var(--cream)}
+.wishes .section-script{color:#F1E8D2}
+.wishes p{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.4rem;max-width:680px;margin:0 auto 1.2rem;color:#E2E8D6;line-height:1.6}
+.signature{font-family:'Allura',cursive;font-size:4rem;color:#F1E8D2;margin-top:1rem;line-height:1}
+
+footer{
+  background:var(--cream-deep);color:var(--sage-ink);
+  text-align:center;padding:4rem 1.5rem;border-top:1px solid var(--rule);
+}
+footer .leaf{width:60px;color:var(--sage-deep);margin:0 auto 1rem}
+footer .names{font-family:'Forum',serif;letter-spacing:.3em;font-size:1.5rem;text-transform:uppercase}
+footer .script{font-family:'Allura',cursive;color:var(--terra);font-size:2rem;margin-top:.6rem;line-height:1}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease, transform 1s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media (max-width:820px){
+  section{padding:5rem 1rem}
+  .couple-grid{grid-template-columns:1fr;gap:1rem}
+  .amp-center .big{font-size:4.5rem;margin:.5rem 0}
+  .events-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,220px)}
+  .gs1{grid-column:1/3;grid-row:1/2;border-radius:120px 120px 0 0/30px 30px 0 0}
+  .gs2{grid-column:1/2;grid-row:2/3}
+  .gs3{grid-column:2/3;grid-row:2/3;border-radius:0}
+  .gs4{grid-column:1/2;grid-row:3/4}
+  .gs5{grid-column:2/3;grid-row:3/4}
+  .hero-leaf-l,.hero-leaf-r{width:80px}
+}
+</style>
+</head>
+<body>
+
+<!-- Reusable SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf-branch" viewBox="0 0 100 200">
+    <path fill="currentColor" d="M50 10 C 52 60, 55 110, 50 190 C 48 110, 45 60, 50 10 Z"/>
+    <g fill="currentColor">
+      <ellipse cx="35" cy="40" rx="18" ry="7" transform="rotate(-30 35 40)"/>
+      <ellipse cx="65" cy="55" rx="18" ry="7" transform="rotate(30 65 55)"/>
+      <ellipse cx="30" cy="75" rx="22" ry="8" transform="rotate(-35 30 75)"/>
+      <ellipse cx="70" cy="95" rx="22" ry="8" transform="rotate(35 70 95)"/>
+      <ellipse cx="32" cy="120" rx="20" ry="7.5" transform="rotate(-32 32 120)"/>
+      <ellipse cx="68" cy="140" rx="20" ry="7.5" transform="rotate(32 68 140)"/>
+      <ellipse cx="38" cy="165" rx="15" ry="6" transform="rotate(-30 38 165)"/>
+      <ellipse cx="62" cy="180" rx="15" ry="6" transform="rotate(30 62 180)"/>
+    </g>
+  </symbol>
+  <symbol id="leaf-small" viewBox="0 0 60 60">
+    <path fill="currentColor" d="M30 8 C 40 18, 48 30, 30 52 C 12 30, 20 18, 30 8 Z"/>
+    <path stroke="rgba(0,0,0,.15)" fill="none" stroke-width=".8" d="M30 12 L 30 50"/>
+  </symbol>
+  <symbol id="sprig" viewBox="0 0 80 30">
+    <path fill="none" stroke="currentColor" stroke-width="1.2" d="M5 15 Q 40 5, 75 15"/>
+    <g fill="currentColor">
+      <ellipse cx="20" cy="14" rx="6" ry="2.5" transform="rotate(-20 20 14)"/>
+      <ellipse cx="35" cy="11" rx="7" ry="2.7" transform="rotate(-15 35 11)"/>
+      <ellipse cx="50" cy="10" rx="7" ry="2.7" transform="rotate(10 50 10)"/>
+      <ellipse cx="65" cy="13" rx="6" ry="2.5" transform="rotate(20 65 13)"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-leaf-l" viewBox="0 0 100 200"><use href="#leaf-branch"/></svg>
+  <svg class="hero-leaf-r" viewBox="0 0 100 200"><use href="#leaf-branch"/></svg>
+  <div class="hero-inner">
+    <div class="hero-overline">Save the Date</div>
+    <div class="hero-script">forever</div>
+    <h1 class="hero-names">
+      <span>Quang Trung</span>
+      <span class="hero-amp">&amp;</span>
+      <span>Tú Anh</span>
+    </h1>
+    <div class="divider-leaf">
+      <span class="line"></span>
+      <svg viewBox="0 0 60 60"><use href="#leaf-small"/></svg>
+      <span class="line"></span>
+    </div>
+    <div class="hero-date">24 &middot; 05 &middot; 2026</div>
+  </div>
+  <div class="scroll-cue">SCROLL ↓</div>
+</section>
+
+<!-- SAVE THE DATE -->
+<section class="save-date">
+  <div class="wrap">
+    <div class="section-script">save the date</div>
+    <h2 class="section-title">Một ngày <em>đặc biệt</em></h2>
+    <div class="botanic-divider">
+      <span class="line"></span>
+      <svg viewBox="0 0 80 30"><use href="#sprig"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="organic-card">
+      <svg class="leaf-top" viewBox="0 0 60 60"><use href="#leaf-small"/></svg>
+      <div class="deco-day">— the wedding of —</div>
+      <div class="deco-big">24</div>
+      <div class="deco-row">
+        <span>Tháng 5</span>
+        <span class="dia"></span>
+        <span>2026</span>
+      </div>
+    </div>
+
+    <p class="organic-quote">
+      "Như cây tìm về với đất, như suối chảy về biển khơi —
+      chúng tôi đã tìm thấy nhau."
+      <span class="script">— growing together, always —</span>
+    </p>
+  </div>
+</section>
+
+<!-- COUPLE -->
+<section>
+  <div class="wrap">
+    <div class="section-script">the couple</div>
+    <h2 class="section-title">Cô dâu <em>&amp;</em> Chú rể</h2>
+    <div class="botanic-divider">
+      <span class="line"></span>
+      <svg viewBox="0 0 60 60"><use href="#leaf-small"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="couple-grid">
+      <div class="person">
+        <div class="person-photo"><img src="../Image/DSC00167.jpg" alt="Chú rể"></div>
+        <div class="person-role">the groom</div>
+        <div class="person-name">Quang Trung</div>
+        <div class="person-parents">
+          <span>Con trai của</span>
+          <span>Ông TRẦN VĂN BÁU</span>
+          <span>Bà AN THỊ KIM DUNG</span>
+          <span style="margin-top:.6rem;font-weight:600;display:block;letter-spacing:.04em">Chú rể: Trần Quang Trung</span>
+          </div>
+      </div>
+
+      <div class="amp-center">
+        <div class="big">&amp;</div>
+        <svg class="leaf" viewBox="0 0 60 60"><use href="#leaf-small"/></svg>
+      </div>
+
+      <div class="person">
+        <div class="person-photo"><img src="../Image/DSC09648.jpg" alt="Cô dâu"></div>
+        <div class="person-role">the bride</div>
+        <div class="person-name">Tú Anh</div>
+        <div class="person-parents">
+          <span>Con gái của</span>
+          <span>Ông TẠ TƯƠNG OANH</span>
+          <span>Bà TẠ THỊ THƠM</span>
+          <span style="margin-top:.6rem;font-weight:600;display:block;letter-spacing:.04em">Cô dâu: Tạ Thị Tú Anh</span>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="section-script">moments</div>
+    <h2 class="section-title">Khoảnh khắc <em>quý giá</em></h2>
+    <div class="botanic-divider">
+      <span class="line"></span>
+      <svg viewBox="0 0 80 30"><use href="#sprig"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gframe gs1"><img src="../Image/DSC09911.jpg" alt=""></div>
+      <div class="gframe gs2"><img src="../Image/DSC00281.jpg" alt=""></div>
+      <div class="gframe gs3"><img src="../Image/DSC09403.jpg" alt=""></div>
+      <div class="gframe gs4"><img src="../Image/DSC00183.jpg" alt=""></div>
+      <div class="gframe gs5"><img src="../Image/DSC09344.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section>
+  <div class="wrap">
+    <div class="section-script">the day</div>
+    <h2 class="section-title">Chương trình <em>lễ cưới</em></h2>
+    <div class="botanic-divider">
+      <span class="line"></span>
+      <svg viewBox="0 0 60 60"><use href="#leaf-small"/></svg>
+      <span class="line"></span>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card">
+        <svg class="leaf" viewBox="0 0 60 60"><use href="#leaf-small"/></svg>
+        <svg class="leaf-bg" viewBox="0 0 100 200"><use href="#leaf-branch"/></svg>
+        <div class="event-label">lễ vu quy</div>
+        <h3 class="event-title">Tư gia nhà gái</h3>
+        <div class="event-meta">
+          <b>Chủ Nhật · 24.05.2026</b>
+          10:30 sáng<br/>
+          Tư gia nhà gái — TP. Sơn La
+        </div>
+      </div>
+
+      <div class="event-card">
+        <svg class="leaf" viewBox="0 0 60 60"><use href="#leaf-small"/></svg>
+        <svg class="leaf-bg" viewBox="0 0 100 200"><use href="#leaf-branch"/></svg>
+        <div class="event-label">tiệc cưới</div>
+        <h3 class="event-title">Wedding Banquet</h3>
+        <div class="event-meta">
+          <b>Chủ Nhật · 24.05.2026</b>
+          10:30 sáng<br/>
+          Nhà Hàng Hương Lan 86<br/>Np5.12 Đ. Văn Tiến Dũng, Tổ 1<br/>P. Chiềng Cơi, TP. Sơn La
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WISHES -->
+<section class="wishes">
+  <div class="wrap">
+    <div class="section-script">thank you</div>
+    <h2 class="section-title">Lời cảm ơn <em>chân thành</em></h2>
+    <div class="botanic-divider">
+      <span class="line" style="background:#D6CFB7"></span>
+      <svg viewBox="0 0 60 60" style="color:#F1E8D2"><use href="#leaf-small"/></svg>
+      <span class="line" style="background:#D6CFB7"></span>
+    </div>
+    <p>
+      Sự hiện diện của quý khách là món quà ấm áp nhất
+      mà gia đình chúng tôi nhận được trong ngày này.
+    </p>
+    <p>
+      Cảm ơn vì đã đồng hành, chứng kiến và lưu giữ
+      một chương đẹp đẽ trong cuộc đời chúng tôi.
+    </p>
+    <div class="signature">— Quang Trung &amp; Tú Anh —</div>
+  </div>
+</section>
+
+<footer>
+  <svg class="leaf" viewBox="0 0 80 30"><use href="#sprig"/></svg>
+  <div class="names">Quang Trung &middot; Tú Anh</div>
+  <div class="script">forever &amp; always</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classList.add('reveal');io.observe(el);});
+</script>
+</body>
+</html>
