@@ -479,7 +479,7 @@ tick(); setInterval(tick, 1000);
     try {
       return {
         time:       parseFloat(sessionStorage.getItem(K_TIME))   || 0,
-        userPaused: sessionStorage.getItem(K_PAUSED)  === '1',
+        userPaused: localStorage.getItem(K_PAUSED)  === '1',
         wasUnmuted: sessionStorage.getItem(K_UNMUTED) === '1',
       };
     } catch(e) { return { time:0, userPaused:false, wasUnmuted:false }; }
@@ -529,18 +529,18 @@ tick(); setInterval(tick, 1000);
   // ---- Manual toggle ----
   btn.addEventListener('click', ()=>{
     if (audio.paused || audio.muted) {
-      try { sessionStorage.setItem(K_PAUSED, '0'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '0'); } catch(e){}
       playWithSound();
       if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
     } else {
-      try { sessionStorage.setItem(K_PAUSED, '1'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '1'); } catch(e){}
       audio.pause();
     }
   });
 
   // ---- INIT: resume from where the previous page left off (if any) ----
   const session  = readSession();
-  const consent  = sessionStorage.getItem('wm_consent') === '1';
+  const consent  = localStorage.getItem('wm_consent') === '1';
   const prompt   = document.getElementById('musicPrompt');
   const promptY  = document.getElementById('musicPromptYes');
   const promptX  = document.getElementById('musicPromptClose');
@@ -559,8 +559,8 @@ tick(); setInterval(tick, 1000);
   // ---- Permission popup handlers ----
   if (promptY) {
     promptY.addEventListener('click', ()=>{
-      try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
-      try { sessionStorage.setItem(K_PAUSED, '0'); } catch(e){}
+      try { localStorage.setItem('wm_consent', '1'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '0'); } catch(e){}
       playWithSound();
       hidePrompt();
       if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
@@ -568,8 +568,8 @@ tick(); setInterval(tick, 1000);
   }
   if (promptX) {
     promptX.addEventListener('click', ()=>{
-      try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
-      try { sessionStorage.setItem(K_PAUSED, '1'); } catch(e){}
+      try { localStorage.setItem('wm_consent', '1'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '1'); } catch(e){}
       hidePrompt();
       setState();
     });
@@ -598,14 +598,14 @@ tick(); setInterval(tick, 1000);
     const p = audio.play();
     if (p && p.then) p.then(setState).catch(()=>playMuted());
     setTimeout(()=>{
-      if (sessionStorage.getItem('wm_consent') !== '1') showPrompt();
+      if (localStorage.getItem('wm_consent') !== '1') showPrompt();
     }, 900);
   }
 
   // Tiny debug helper — call window.__musicState() from devtools to inspect.
   window.__musicState = () => ({
-    consent:    sessionStorage.getItem('wm_consent') === '1',
-    userPaused: sessionStorage.getItem(K_PAUSED)     === '1',
+    consent:    localStorage.getItem('wm_consent') === '1',
+    userPaused: localStorage.getItem(K_PAUSED)     === '1',
     time:       sessionStorage.getItem(K_TIME),
     paused:     audio.paused,
     muted:      audio.muted,
@@ -619,7 +619,7 @@ tick(); setInterval(tick, 1000);
     if (interacted) return;
     interacted = true;
     const cur = readSession();
-    if (!cur.userPaused && sessionStorage.getItem('wm_consent') === '1' && (audio.paused || audio.muted)) {
+    if (!cur.userPaused && localStorage.getItem('wm_consent') === '1' && (audio.paused || audio.muted)) {
       playWithSound();
     }
     ['pointerdown','touchstart','scroll','keydown','wheel'].forEach(t =>

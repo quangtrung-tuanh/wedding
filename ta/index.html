@@ -617,7 +617,7 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
     try {
       return {
         time:       parseFloat(sessionStorage.getItem(K_TIME))   || 0,
-        userPaused: sessionStorage.getItem(K_PAUSED)  === '1',
+        userPaused: localStorage.getItem(K_PAUSED)  === '1',
         wasUnmuted: sessionStorage.getItem(K_UNMUTED) === '1',
       };
     } catch(e) { return { time:0, userPaused:false, wasUnmuted:false }; }
@@ -666,18 +666,18 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
   // ---- Manual toggle ----
   btn.addEventListener('click', ()=>{
     if (audio.paused || audio.muted) {
-      try { sessionStorage.setItem(K_PAUSED, '0'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '0'); } catch(e){}
       playWithSound();
       if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
     } else {
-      try { sessionStorage.setItem(K_PAUSED, '1'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '1'); } catch(e){}
       audio.pause();
     }
   });
 
   // ---- INIT: resume from where the previous page left off (if any) ----
   const session  = readSession();
-  const consent  = sessionStorage.getItem('wm_consent') === '1';
+  const consent  = localStorage.getItem('wm_consent') === '1';
   const prompt   = document.getElementById('musicPrompt');
   const promptY  = document.getElementById('musicPromptYes');
   const promptX  = document.getElementById('musicPromptClose');
@@ -696,8 +696,8 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
   // ---- Permission popup handlers ----
   if (promptY) {
     promptY.addEventListener('click', ()=>{
-      try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
-      try { sessionStorage.setItem(K_PAUSED, '0'); } catch(e){}
+      try { localStorage.setItem('wm_consent', '1'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '0'); } catch(e){}
       playWithSound();
       hidePrompt();
       if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
@@ -705,14 +705,17 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
   }
   if (promptX) {
     promptX.addEventListener('click', ()=>{
-      try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
-      try { sessionStorage.setItem(K_PAUSED, '1'); } catch(e){}
+      try { localStorage.setItem('wm_consent', '1'); } catch(e){}
+      try { localStorage.setItem(K_PAUSED, '1'); } catch(e){}
       hidePrompt();
       setState();
     });
   }
 
   // ---- Auto-play attempt + decide popup visibility ----
+  // SAFETY: always force-hide first; only the final "else" branch re-opens it.
+  hidePrompt();
+
   if (session.userPaused) {
     setState();
   } else if (consent) {
@@ -723,14 +726,27 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
   } else {
     const p = audio.play();
     if (p && p.then) p.then(setState).catch(()=>playMuted());
-    setTimeout(showPrompt, 900);
+    // Re-check consent at fire-time in case it was granted during the wait.
+    setTimeout(()=>{
+      if (localStorage.getItem('wm_consent') !== '1') showPrompt();
+    }, 900);
   }
+
+  // Tiny debug helper — call window.__musicState() from devtools to inspect.
+  window.__musicState = () => ({
+    consent:    localStorage.getItem('wm_consent') === '1',
+    userPaused: localStorage.getItem(K_PAUSED)     === '1',
+    time:       sessionStorage.getItem(K_TIME),
+    paused:     audio.paused,
+    muted:      audio.muted,
+    promptShown: prompt && prompt.classList.contains('show'),
+  });
 
   function onceInteract(){
     if (interacted) return;
     interacted = true;
     const cur = readSession();
-    if (!cur.userPaused && sessionStorage.getItem('wm_consent') === '1' && (audio.paused || audio.muted)) {
+    if (!cur.userPaused && localStorage.getItem('wm_consent') === '1' && (audio.paused || audio.muted)) {
       playWithSound();
     }
     ['pointerdown','touchstart','scroll','keydown','wheel'].forEach(t =>
@@ -740,7 +756,7 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
     document.addEventListener(t, onceInteract, {capture:true, passive:true}));
 
   document.addEventListener('visibilitychange', ()=>{
-    if (!document.hidden && (audio.paused || audio.muted) && !readSession().userPaused && sessionStorage.getItem('wm_consent') === '1') {
+    if (!document.hidden && (audio.paused || audio.muted) && !readSession().userPaused && localStorage.getItem('wm_consent') === '1') {
       audio.muted = false;
       audio.play().catch(()=>playMuted());
     }
