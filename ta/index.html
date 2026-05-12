@@ -518,89 +518,74 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
   <source src="../audio/i-do.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ===== WELCOME GATE (continuation variant for inner page) ===== -->
+<!-- ===== AUDIO PERMISSION POPUP — small bottom-right card ===== -->
 <style>
-.welcome-gate{
-  position:fixed;inset:0;z-index:1000;
-  display:none;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#FCE9E4 0%,#F4CBC1 60%,#D88A8E 100%);
-  padding:2rem;
-  opacity:0;transition:opacity .65s ease;
+.music-prompt{
+  position:fixed;bottom:5.2rem;right:1.5rem;z-index:99;
+  display:none;align-items:center;gap:.8rem;
+  background:#fff;
+  border:1px solid #E5BFB8;
+  border-radius:18px;
+  padding:.85rem 1rem .85rem .9rem;
+  max-width:340px;
+  box-shadow:0 18px 38px -12px rgba(168,89,99,.4);
+  font-family:'Lora',serif;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .45s ease, transform .45s ease;
 }
-.welcome-gate.show{display:flex;opacity:1}
-.welcome-gate.closing{opacity:0;pointer-events:none}
-.welcome-gate::before,.welcome-gate::after{
-  content:'';position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+.music-prompt.show{display:flex;opacity:1;transform:translateY(0)}
+.music-prompt-icon{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,#FBD3CC,#D88A8E);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:18px;line-height:1;
+  animation:promptPulse 1.8s ease-in-out infinite;
 }
-.welcome-gate::before{top:-15%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.7),transparent 70%)}
-.welcome-gate::after{bottom:-15%;right:-10%;width:380px;height:380px;background:radial-gradient(circle,rgba(168,87,99,.4),transparent 70%)}
-.welcome-card{
-  position:relative;z-index:2;text-align:center;
-  max-width:480px;width:100%;
-  animation:welcomeUp .9s cubic-bezier(.2,.7,.2,1);
+@keyframes promptPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.music-prompt-body{flex:1;min-width:0;line-height:1.3}
+.music-prompt-title{
+  font-family:'Marcellus',serif;font-weight:500;font-size:.82rem;
+  color:#5B2E33;letter-spacing:.04em;
 }
-@keyframes welcomeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-.welcome-overline{
-  font-family:'Marcellus',serif;font-weight:500;letter-spacing:.5em;
-  font-size:.7rem;text-transform:uppercase;color:#A85963;margin-bottom:1.5rem;
+.music-prompt-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.82rem;color:#8F5C61;margin-top:.1rem;
 }
-.welcome-script{
-  font-family:'Dancing Script',cursive;font-weight:500;
-  font-size:clamp(2rem,5.5vw,3rem);color:#A85963;line-height:1;margin-bottom:.5rem;
-}
-.welcome-names{
-  font-family:'Marcellus',serif;
-  font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.1;color:#5B2E33;
-  letter-spacing:.22em;text-transform:uppercase;margin-bottom:1.4rem;
-}
-.welcome-heart{width:42px;height:42px;color:#D88A8E;margin:0 auto 1.5rem;animation:welcomeHeart 1.6s ease-in-out infinite}
-.welcome-heart svg{width:100%;height:100%}
-@keyframes welcomeHeart{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-.welcome-btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  width:100%;max-width:340px;padding:.95rem 1.4rem;border-radius:999px;
-  border:none;font-family:'Marcellus',serif;font-weight:400;
-  letter-spacing:.22em;font-size:.78rem;text-transform:uppercase;
-  cursor:pointer;margin-bottom:.7rem;
-  transition:transform .3s ease,box-shadow .3s ease;
-}
-.welcome-btn svg{width:18px;height:18px}
-.welcome-btn.primary{
+.music-prompt-yes{
+  flex-shrink:0;
   background:linear-gradient(135deg,#D88A8E,#A85963);color:#fff;
-  box-shadow:0 16px 34px -14px rgba(168,89,99,.55);
+  border:none;padding:.55rem 1.05rem;border-radius:999px;
+  font-family:'Marcellus',serif;font-weight:400;
+  letter-spacing:.22em;font-size:.68rem;text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 8px 18px -6px rgba(168,89,99,.5);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-.welcome-btn.primary:hover{transform:translateY(-2px);box-shadow:0 22px 42px -14px rgba(168,89,99,.5)}
-.welcome-btn.ghost{
-  background:rgba(255,255,255,.6);color:#A85963;
-  border:1px solid #D88A8E;backdrop-filter:blur(6px);
+.music-prompt-yes:hover{transform:translateY(-1px);box-shadow:0 12px 22px -6px rgba(168,89,99,.55)}
+.music-prompt-close{
+  position:absolute;top:6px;right:8px;
+  width:20px;height:20px;border:none;background:transparent;
+  color:#B19994;cursor:pointer;font-size:16px;line-height:1;padding:0;
+  border-radius:50%;
 }
-.welcome-btn.ghost:hover{background:rgba(255,255,255,.85)}
-.welcome-fine{
-  margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:.85rem;color:#8F5C61;line-height:1.5;
-}
+.music-prompt-close:hover{color:#5B2E33;background:rgba(0,0,0,.04)}
 @media (max-width:480px){
-  .welcome-gate{padding:1.2rem}
-  .welcome-overline{font-size:.62rem;letter-spacing:.35em}
-  .welcome-btn{font-size:.7rem;letter-spacing:.18em;padding:.85rem 1.1rem}
+  .music-prompt{
+    left:.7rem;right:.7rem;bottom:5rem;
+    max-width:none;
+  }
+  .music-prompt-title,.music-prompt-sub{font-size:.78rem}
 }
 </style>
 
-<div class="welcome-gate show" id="welcomeGate" role="dialog" aria-modal="true" aria-label="Mở thiệp">
-  <div class="welcome-card">
-    <div class="welcome-overline">Lễ Vu Quy · 24.05.2026</div>
-    <div class="welcome-script">save the date</div>
-    <h1 class="welcome-names">Tú Anh &amp; Quang Trung</h1>
-    <div class="welcome-heart">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg>
-    </div>
-    <button class="welcome-btn primary" id="welcomeOpen" autofocus>
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      Mở thiệp &amp; bật nhạc
-    </button>
-    <button class="welcome-btn ghost" id="welcomeMute">Mở mà không có nhạc</button>
-    <div class="welcome-fine">Nhấn để cấp quyền phát nhạc &amp; bắt đầu trải nghiệm</div>
+<div class="music-prompt" id="musicPrompt" role="dialog" aria-live="polite">
+  <button class="music-prompt-close" id="musicPromptClose" aria-label="Đóng">×</button>
+  <div class="music-prompt-icon" aria-hidden="true">♥</div>
+  <div class="music-prompt-body">
+    <div class="music-prompt-title">Cho phép phát nhạc nền?</div>
+    <div class="music-prompt-sub">"I Do" — trọn trải nghiệm</div>
   </div>
+  <button class="music-prompt-yes" id="musicPromptYes">Bật</button>
 </div>
 
 <div class="music-hint" id="musicHint"><span class="heart">♥</span> Nhạc nền · "I Do"</div>
@@ -691,11 +676,11 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
   });
 
   // ---- INIT: resume from where the previous page left off (if any) ----
-  const session = readSession();
-  const consent = sessionStorage.getItem('wm_consent') === '1';
-  const gate     = document.getElementById('welcomeGate');
-  const gateOpen = document.getElementById('welcomeOpen');
-  const gateMute = document.getElementById('welcomeMute');
+  const session  = readSession();
+  const consent  = sessionStorage.getItem('wm_consent') === '1';
+  const prompt   = document.getElementById('musicPrompt');
+  const promptY  = document.getElementById('musicPromptYes');
+  const promptX  = document.getElementById('musicPromptClose');
 
   function applySavedTime(){
     if (session.time > 0 && isFinite(session.time)) {
@@ -705,65 +690,48 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
   audio.addEventListener('loadedmetadata', applySavedTime, {once:true});
   applySavedTime();
 
-  function hideGate(){
-    if (!gate) return;
-    gate.classList.add('closing');
-    setTimeout(()=>{
-      gate.classList.remove('show');
-      gate.classList.remove('closing');
-    }, 700);
-  }
+  function showPrompt(){ if (prompt) prompt.classList.add('show'); }
+  function hidePrompt(){ if (prompt) prompt.classList.remove('show'); }
 
-  // ---- Gate button handlers (these clicks ARE user gestures) ----
-  if (gateOpen) {
-    gateOpen.addEventListener('click', ()=>{
+  // ---- Permission popup handlers ----
+  if (promptY) {
+    promptY.addEventListener('click', ()=>{
       try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
       try { sessionStorage.setItem(K_PAUSED, '0'); } catch(e){}
       playWithSound();
-      hideGate();
+      hidePrompt();
       if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
     });
   }
-  if (gateMute) {
-    gateMute.addEventListener('click', ()=>{
+  if (promptX) {
+    promptX.addEventListener('click', ()=>{
       try { sessionStorage.setItem('wm_consent', '1'); } catch(e){}
       try { sessionStorage.setItem(K_PAUSED, '1'); } catch(e){}
+      hidePrompt();
       setState();
-      hideGate();
     });
   }
 
-  // ---- Decide whether to show the gate ----
+  // ---- Auto-play attempt + decide popup visibility ----
   if (session.userPaused) {
-    hideGate();
     setState();
   } else if (consent) {
-    // Already consented earlier in session — try silent autoplay, dismiss gate.
     const p = audio.play();
     if (p && p.then) {
-      p.then(()=>{
-        setState();
-        hideGate();
-        if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
-      }).catch(()=>{
-        // Browser still refused — keep gate visible for explicit gesture.
-        if (gate) gate.classList.add('show');
-        playMuted();
-      });
+      p.then(setState).catch(()=>playMuted());
     }
   } else {
-    // No prior consent — show gate, prime muted track underneath.
     const p = audio.play();
-    if (p && p.then) p.then(()=>setState()).catch(()=>playMuted());
+    if (p && p.then) p.then(setState).catch(()=>playMuted());
+    setTimeout(showPrompt, 900);
   }
 
-  // Fallback: unmute on first interaction if gate was skipped/dismissed.
   function onceInteract(){
     if (interacted) return;
     interacted = true;
-    if (!readSession().userPaused && (audio.paused || audio.muted) && (!gate || !gate.classList.contains('show'))) {
+    const cur = readSession();
+    if (!cur.userPaused && sessionStorage.getItem('wm_consent') === '1' && (audio.paused || audio.muted)) {
       playWithSound();
-      if (!hinted) { hinted = true; flashHint('Nhạc nền · "I Do"'); }
     }
     ['pointerdown','touchstart','scroll','keydown','wheel'].forEach(t =>
       document.removeEventListener(t, onceInteract, true));
@@ -772,7 +740,7 @@ document.querySelectorAll('section > .wrap, .hero-inner').forEach(el=>{el.classL
     document.addEventListener(t, onceInteract, {capture:true, passive:true}));
 
   document.addEventListener('visibilitychange', ()=>{
-    if (!document.hidden && (audio.paused || audio.muted) && !readSession().userPaused && (!gate || !gate.classList.contains('show'))) {
+    if (!document.hidden && (audio.paused || audio.muted) && !readSession().userPaused && sessionStorage.getItem('wm_consent') === '1') {
       audio.muted = false;
       audio.play().catch(()=>playMuted());
     }
