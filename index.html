@@ -82,25 +82,25 @@ img{max-width:100%;display:block}
 .cd-banner::after{bottom:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(216,135,145,.3),transparent 70%)}
 .cd-banner > *{position:relative;z-index:2}
 .cd-banner .label{
-  font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.45em;
-  font-size:.68rem;text-transform:uppercase;color:var(--rose-deep);margin-bottom:1rem;
+  font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.5em;
+  font-size:.85rem;text-transform:uppercase;color:var(--rose-deep);margin-bottom:1.2rem;
 }
-.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
+.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
 .cd-grid > div{
   background:linear-gradient(180deg,var(--pink-light),var(--bg-soft));
-  border-radius:14px;padding:.9rem .4rem;
+  border-radius:16px;padding:1.1rem .4rem;
   border:1px solid var(--rule);
 }
 .cd-num{
   display:block;font-family:'Cormorant Garamond',serif;font-weight:400;
-  font-size:clamp(1.7rem,5vw,2.6rem);color:var(--rose-deep);line-height:1;font-variant-numeric:tabular-nums;
+  font-size:clamp(2.1rem,6.5vw,3.3rem);color:var(--rose-deep);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.04em;
 }
-.cd-lbl{display:block;margin-top:.4rem;font-family:'DM Sans',sans-serif;letter-spacing:.25em;font-size:.6rem;text-transform:uppercase;color:var(--soft-ink)}
+.cd-lbl{display:block;margin-top:.55rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.28em;font-size:.78rem;text-transform:uppercase;color:var(--soft-ink)}
 .cd-event{
-  margin-top:1.2rem;font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:1rem;color:var(--ink);line-height:1.6;
+  margin-top:1.7rem;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--ink);line-height:1.55;
 }
-.cd-event b{font-weight:500;color:var(--rose-deep);font-style:normal;letter-spacing:.04em}
+.cd-event b{font-weight:500;color:var(--rose-deep);font-style:normal;letter-spacing:.04em;font-size:1.08em}
 
 /* ===== CATEGORY HEAD ===== */
 .category-head{
@@ -205,6 +205,82 @@ img{max-width:100%;display:block}
   box-shadow:0 14px 28px -10px rgba(0,0,0,.4);
 }
 
+/* ========= Featured invitation card (c2) — make the call-to-action obvious ========= */
+.card.c2{
+  border:2px solid var(--rose);
+  box-shadow:0 22px 46px -18px rgba(168,89,99,.45);
+}
+.card.c2 .card-thumb::after{
+  background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(168,89,99,.6) 60%, rgba(91,46,51,.85) 100%);
+}
+.card.c2 .card-overlay{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem 1.4rem;gap:.8rem;
+}
+.card.c2 .invite-tag{
+  font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:.45em;
+  font-size:.82rem;color:#FDE6E2;text-transform:uppercase;
+  background:rgba(255,255,255,.2);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.4);
+  padding:.45rem 1.1rem;border-radius:999px;
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
+}
+.card.c2 .invite-names{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(2rem,4.8vw,2.9rem);line-height:1.1;color:#fff;
+  text-shadow:0 3px 10px rgba(0,0,0,.45);margin:.3rem 0;
+}
+.card.c2 .invite-names .amp{
+  font-family:'Allura',cursive;color:#FBD3CC;font-weight:400;
+  font-size:1.15em;display:inline-block;margin:0 .1em;vertical-align:.05em;
+}
+.card.c2 .invite-date{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;
+  color:#FBD3CC;letter-spacing:.25em;text-shadow:0 1px 4px rgba(0,0,0,.3);
+}
+
+/* The big juicy CTA */
+.card.c2 .card-cta{
+  margin-top:1.5rem;
+  background:linear-gradient(135deg,#FBD3CC,#fff 50%,#FBD3CC);
+  color:#5B2E33;
+  font-family:'DM Sans',sans-serif;font-weight:700;
+  letter-spacing:.24em;font-size:1.15rem;
+  padding:1.15rem 2rem;border-radius:999px;
+  box-shadow:0 16px 36px -10px rgba(168,89,99,.6), 0 0 0 0 rgba(255,255,255,.6);
+  position:relative;z-index:3;
+  animation:ctaBreathe 2.4s ease-in-out infinite, ctaRing 2.4s ease-in-out infinite;
+}
+.card.c2 .card-cta svg{width:22px;height:22px}
+@keyframes ctaBreathe{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+@keyframes ctaRing{
+  0%{box-shadow:0 16px 36px -10px rgba(168,89,99,.6), 0 0 0 0 rgba(255,255,255,.65)}
+  70%{box-shadow:0 16px 36px -10px rgba(168,89,99,.6), 0 0 0 16px rgba(255,255,255,0)}
+  100%{box-shadow:0 16px 36px -10px rgba(168,89,99,.6), 0 0 0 0 rgba(255,255,255,0)}
+}
+.card.c2:hover .card-cta{
+  transform:scale(1.08);
+  background:#fff;
+  animation:none;
+}
+
+.card.c2 .invite-hint{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.05rem,2.5vw,1.25rem);
+  color:#FFE9E3;margin-top:.5rem;font-weight:500;
+  text-shadow:0 2px 6px rgba(0,0,0,.45);
+  display:inline-flex;align-items:center;gap:.5rem;
+  animation:hintBob 2.4s ease-in-out infinite;
+}
+@keyframes hintBob{
+  0%,100%{transform:translateY(0);opacity:.92}
+  50%{transform:translateY(4px);opacity:1}
+}
+.card.c2 .invite-hint svg{width:20px;height:20px;color:#FBD3CC}
+
 /* Per-card hue overlay */
 .card.c1 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(96,72,40,.78) 100%)}
 .card.c2 .card-thumb::after{background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(168,89,99,.78) 100%)}
@@ -238,9 +314,12 @@ footer .small{display:block;margin-top:.7rem;font-size:.7rem;letter-spacing:.25e
 @media (max-width:760px){
   .intro{padding:4rem 1rem 1.5rem}
   .intro::before{height:40px}
-  .cd-banner{padding:1.4rem 1.1rem;border-radius:18px}
-  .cd-grid{grid-template-columns:repeat(4,1fr);gap:.45rem}
-  .cd-grid > div{padding:.7rem .3rem;border-radius:10px}
+  .cd-banner{padding:1.6rem 1.2rem;border-radius:20px}
+  .cd-banner .label{font-size:.75rem;letter-spacing:.4em}
+  .cd-grid{grid-template-columns:repeat(4,1fr);gap:.55rem}
+  .cd-grid > div{padding:.9rem .3rem;border-radius:12px}
+  .cd-lbl{font-size:.68rem;letter-spacing:.2em}
+  .cd-event{font-size:1.25rem;line-height:1.5}
   .grid{padding:0 1rem 1.5rem;gap:1.2rem}
   .category-head{margin-top:3.5rem;padding:0 1rem;flex-wrap:wrap}
   .category-head h2{font-size:1.4rem;flex-basis:100%}
@@ -279,11 +358,21 @@ footer .small{display:block;margin-top:.7rem;font-size:.7rem;letter-spacing:.25e
 <main class="grid">
 
 
-  <a class="card c2" href="ta/index.html">
+  <a class="card c2" href="ta/index.html" aria-label="Mở thiệp mời cưới Tú Anh và Quang Trung">
     <span class="pink-badge">★</span>
     <div class="card-thumb" style="background-image:url('Image/DSC09648.jpg')"></div>
     <div class="card-overlay">
-    <span class="card-cta">Mở phong bì →</span>
+      <span class="invite-tag">Wedding Invitation</span>
+      <h2 class="invite-names">Tú Anh <span class="amp">&amp;</span> Quang Trung</h2>
+      <span class="card-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7l8 6 8-6M4 7v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7M4 7l8-4 8 4"/></svg>
+        Mở phong bì
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </span>
+      <div class="invite-hint">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 18V8a2 2 0 0 1 4 0v4M12 12V6a2 2 0 0 1 4 0v6M16 11a2 2 0 0 1 4 0v5a8 8 0 0 1-8 8H9c-2 0-3-1-5-5l-1-2"/></svg>
+        Chạm vào đây để mở thiệp
+      </div>
     </div>
   </a>
 
